@@ -1,7 +1,7 @@
 ---
 title: A Quick Introduction to TDD
 date: "2019-08-04T22:00:00.284Z"
-description: A custom description
+description: What is TDD? Learn the basics in this quick post.
 ---
 
 ## What is TDD?
