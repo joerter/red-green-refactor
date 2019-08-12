@@ -1,7 +1,7 @@
 ---
 title: Correctness vs. Behavior
 date: "2019-08-11T22:00:00.284Z"
-description: Deuling mentalities when it comes to writing unit tests
+description: Dueling mentalities when it comes to writing unit tests
 ---
 
 I recently read [this excellent blog post](https://blog.cleancoder.com/uncle-bob/2019/06/08/TestsAndTypes.html) by Bob Martin about an interesting
