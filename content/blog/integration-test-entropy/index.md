@@ -1,11 +1,12 @@
---- 
-title: Integration Test Entropy date: "2020-02-12T22:00:00.284Z" 
+---
+title: Integration Test Entropy
+date: "2020-02-12T22:00:00.284Z"
 description: Why do integration tests become brittle and lose value over time?
 ---
 
 ## What is Entropy?
 
-According to the Oxford Dictionary:
+According to the Oxford Dictionary, entropy can be defined as:
 
 > gradual decline into disorder
 
@@ -17,6 +18,11 @@ lost value. As a result, developers begin skipping them in CI builds and soon
 neglect them altogether. In this article, I want to talk about the two main
 reasons I believe this entropy occurs and what can be done to make sure
 integration tests thrive and provide value throughout the lifespan of a project.
+
+_Note: Integration tests could have many different meanings to different
+developers. For the purposes of this article I'm referring specifically to end
+to end tests that either test a UI (Selenium, Cypress, etc.) or test the data
+returned by a REST API._
 
 ## Data Reliance
 
