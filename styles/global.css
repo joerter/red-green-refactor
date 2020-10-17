@@ -1,3 +1,11 @@
+:root {
+    --blue: #2490ea;
+    --white: #fff;
+    --black: #000;
+    --text-color: #555;
+    --header-color: #333;
+}
+
 html,
 body {
     padding: 0;
@@ -6,19 +14,37 @@ body {
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     line-height: 1.6;
     font-size: 18px;
+    color: var(--text-color);
+}
+
+h1,
+h2,
+strong {
+    color: var(--header-color);
 }
 
 * {
     box-sizing: border-box;
 }
 
-a {
-    color: #0070f3;
+a,
+a:visited {
+    background: linear-gradient(to bottom, var(--blue) 0%, var(--blue) 100%);
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 4px 4px;
     text-decoration: none;
+    transition: all 0.2s;
+    color: var(--black);
+    font-weight: bold;
+    padding: 0 2px;
 }
 
-a:hover {
-    text-decoration: underline;
+a:hover,
+a:active,
+a:focus {
+    background-size: 4px 50px;
+    color: var(--white);
 }
 
 img {

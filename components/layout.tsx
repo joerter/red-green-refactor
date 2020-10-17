@@ -1,9 +1,7 @@
 import Head from 'next/head';
 import styles from './layout.module.css';
-import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 
-const name = 'John Oerter';
 export const siteTitle = 'Red Green Refactor';
 
 export default function Layout({
@@ -34,7 +32,7 @@ export default function Layout({
                 <img
                     src="/images/logo-cropped.png"
                     className={styles.headerHomeImage}
-                    alt={name}
+                    alt={siteTitle}
                 />
                 <nav className={styles.menu}>
                     <Link href="/">
