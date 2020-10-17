@@ -29,11 +29,7 @@ export default function Layout({
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
             <header className={styles.header}>
-                <img
-                    src="/images/logo-cropped.png"
-                    className={styles.headerHomeImage}
-                    alt={siteTitle}
-                />
+                <img src="/images/logo-cropped.png" alt={siteTitle} />
                 <nav className={styles.menu}>
                     <Link href="/">
                         <a>Home</a>

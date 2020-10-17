@@ -1,0 +1,31 @@
+.bio {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bio p {
+    margin: 0;
+}
+
+.bio img {
+    margin-right: 1rem;
+}
+
+@media only screen and (max-width: 400px) {
+    .bio {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.links a {
+    margin: 1rem;
+}
