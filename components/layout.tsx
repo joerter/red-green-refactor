@@ -19,7 +19,7 @@ export default function Layout({
                 <link rel="icon" href="/favicon.ico" />
                 <meta
                     name="description"
-                    content="Learn how to build a personal website using Next.js"
+                    content="Red Green Refactor is the personal blog site for John Oerter, a software developer in Omaha, NE"
                 />
                 <meta
                     property="og:image"
@@ -31,35 +31,22 @@ export default function Layout({
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
             <header className={styles.header}>
-                {home ? (
-                    <>
-                        <img
-                            src="/images/profile.jpg"
-                            className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
-                            alt={name}
-                        />
-                        <h1 className={utilStyles.heading2Xl}>{name}</h1>
-                    </>
-                ) : (
-                    <>
-                        <Link href="/">
-                            <a>
-                                <img
-                                    src="/images/profile.jpg"
-                                    className={`${styles.headerImage} ${utilStyles.borderCircle}`}
-                                    alt={name}
-                                />
-                            </a>
-                        </Link>
-                        <h2 className={utilStyles.headingLg}>
-                            <Link href="/">
-                                <a className={utilStyles.colorInherit}>
-                                    {name}
-                                </a>
-                            </Link>
-                        </h2>
-                    </>
-                )}
+                <img
+                    src="/images/logo-cropped.png"
+                    className={styles.headerHomeImage}
+                    alt={name}
+                />
+                <nav className={styles.menu}>
+                    <Link href="/">
+                        <a>Home</a>
+                    </Link>
+                    <Link href="/">
+                        <a>About</a>
+                    </Link>
+                    <Link href="/">
+                        <a>Tags</a>
+                    </Link>
+                </nav>
             </header>
             <main>{children}</main>
             {!home && (
