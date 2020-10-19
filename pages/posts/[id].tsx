@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Date from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
 import { GetStaticProps, GetStaticPaths } from 'next';
+import Tags from '../../components/tags';
 
 export default function Post({
     postData,
@@ -12,6 +13,7 @@ export default function Post({
         title: string;
         date: string;
         contentHtml: string;
+        tags: string[];
     };
 }) {
     return (
@@ -24,6 +26,7 @@ export default function Post({
                 <div className={utilStyles.lightText}>
                     <Date dateString={postData.date} />
                 </div>
+                <Tags tags={postData.tags}></Tags>
                 <div
                     dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
                 />

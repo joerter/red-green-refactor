@@ -1,0 +1,17 @@
+a.tag {
+    margin: 0.5rem 0.5rem;
+    background: none;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: normal;
+    transition: all 0.2s ease-in-out;
+    font-weight: bold;
+}
+
+a.tag:hover {
+    color: var(--green);
+}
+
+.tag:first-of-type {
+    margin-left: 0;
+}

@@ -19,10 +19,12 @@ export function getSortedPostsData() {
 
         // Use gray-matter to parse the post metadata section
         const matterResult = matter(fileContents);
+        const tags = matterResult.data.tags;
 
         // Combine the data with the id
         return {
             id,
+            tags,
             ...(matterResult.data as { date: string; title: string }),
         };
     });
@@ -53,6 +55,7 @@ export async function getPostData(id: string) {
 
     // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);
+    const tags = matterResult.data.tags;
 
     // Use remark to convert markdown into HTML string
     const processedContent = await remark()
@@ -64,6 +67,7 @@ export async function getPostData(id: string) {
     return {
         id,
         contentHtml,
+        tags,
         ...(matterResult.data as { date: string; title: string }),
     };
 }
