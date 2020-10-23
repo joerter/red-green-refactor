@@ -71,3 +71,66 @@ export async function getPostData(id: string) {
         ...(matterResult.data as { date: string; title: string }),
     };
 }
+
+export async function getPostsByTag(tag: string) {
+    // Get file names under /posts
+    const fileNames = fs.readdirSync(postsDirectory);
+    const allPostsData = fileNames
+        .map((fileName) => {
+            // Remove ".md" from file name to get id
+            const id = fileName.replace(/\.md$/, '');
+
+            // Read markdown file as string
+            const fullPath = path.join(postsDirectory, fileName);
+            const fileContents = fs.readFileSync(fullPath, 'utf8');
+
+            // Use gray-matter to parse the post metadata section
+            const matterResult = matter(fileContents);
+            const tags = matterResult.data.tags as string[];
+            if (!tags.includes(tag)) {
+                return null;
+            }
+
+            return {
+                id,
+                tags,
+                ...(matterResult.data as { date: string; title: string }),
+            };
+        })
+        .filter((p) => p != null);
+
+    const sortedPosts = allPostsData.sort((a, b) => {
+        if (a.date < b.date) {
+            return 1;
+        } else {
+            return -1;
+        }
+    });
+    return {
+        tag,
+        posts: sortedPosts,
+    };
+}
+
+export function getAllPostTags() {
+    let tags = [];
+    const fileNames = fs.readdirSync(postsDirectory);
+
+    fileNames.forEach((fileName) => {
+        const fullPath = path.join(postsDirectory, fileName);
+        const fileContents = fs.readFileSync(fullPath);
+        const matterResult = matter(fileContents);
+        const postTags = matterResult.data.tags;
+        tags = [...postTags, ...tags];
+    });
+
+    const uniqueTags = tags.filter(
+        (t, index, self) => self.indexOf(t) === index
+    );
+    console.log(uniqueTags);
+    return uniqueTags.map((t) => ({
+        params: {
+            tag: t,
+        },
+    }));
+}

@@ -37,8 +37,8 @@ export default function Layout({
                     <Link href="/about">
                         <a>About</a>
                     </Link>
-                    <Link href="/tags">
-                        <a>Tags</a>
+                    <Link href="/rss">
+                        <a>RSS Feed</a>
                     </Link>
                 </nav>
             </header>

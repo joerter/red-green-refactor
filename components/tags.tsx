@@ -3,7 +3,7 @@ import tagStyles from './tags.module.css';
 
 export default function Tags({ tags }: { tags: string[] }) {
     const tagList = tags.map((t) => (
-        <Link href="/" key={t}>
+        <Link href={`/tags/${t}`} key={t}>
             <a className={tagStyles.tag}>#{t}</a>
         </Link>
     ));
