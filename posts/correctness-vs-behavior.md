@@ -3,7 +3,7 @@ title: Correctness vs. Behavior
 date: '2019-08-11'
 description: Dueling mentalities when it comes to writing unit tests
 tags:
-    - general
+    - craftsmanship
 ---
 
 I recently read [this excellent blog post](https://blog.cleancoder.com/uncle-bob/2019/06/08/TestsAndTypes.html) by Bob Martin about an interesting

@@ -38,6 +38,28 @@ export function getSortedPostsData() {
     });
 }
 
+export function getTagsData() {
+    const tags = {};
+    const fileNames = fs.readdirSync(postsDirectory);
+
+    fileNames.forEach((fileName) => {
+        const fullPath = path.join(postsDirectory, fileName);
+        const fileContents = fs.readFileSync(fullPath);
+        const matterResult = matter(fileContents);
+        const postTags = matterResult.data.tags as string[];
+        postTags.forEach((t) => {
+            if (tags[t] != null) {
+                tags[t]++;
+                return;
+            }
+
+            tags[t] = 1;
+        });
+    });
+
+    return tags;
+}
+
 export function getAllPostIds() {
     const fileNames = fs.readdirSync(postsDirectory);
     return fileNames.map((fileName) => {
@@ -127,7 +149,6 @@ export function getAllPostTags() {
     const uniqueTags = tags.filter(
         (t, index, self) => self.indexOf(t) === index
     );
-    console.log(uniqueTags);
     return uniqueTags.map((t) => ({
         params: {
             tag: t,

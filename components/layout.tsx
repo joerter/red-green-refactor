@@ -29,16 +29,18 @@ export default function Layout({
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
             <header className={styles.header}>
-                <img src="/images/logo-cropped.png" alt={siteTitle} />
+                <Link href="/">
+                    <a className="link-override"><img src="/images/logo-cropped.png" alt={siteTitle} /></a>
+                </Link>
                 <nav className={styles.menu}>
-                    <Link href="/">
-                        <a>Home</a>
-                    </Link>
                     <Link href="/about">
                         <a>About</a>
                     </Link>
+                    <Link href="/tags">
+                        <a>Tags</a>
+                    </Link>
                     <Link href="/rss">
-                        <a>RSS Feed</a>
+                        <a>RSS</a>
                     </Link>
                 </nav>
             </header>

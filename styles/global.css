@@ -54,7 +54,16 @@ a:focus {
     color: var(--white);
 }
 
+a.link-override {
+    background: none;
+    text-decoration: none;
+    transition: none;
+    font-weight: normal;
+    padding: 0;
+}
+
 img {
     max-width: 100%;
+    height: auto;
     display: block;
 }

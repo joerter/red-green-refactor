@@ -3,7 +3,8 @@ title: A Quick Introduction to TDD
 date: '2019-08-04'
 description: What is TDD? Learn the basics in this quick post.
 tags:
-    - general
+    - craftsmanship
+    - tdd
 ---
 
 ## What is TDD?

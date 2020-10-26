@@ -5,7 +5,6 @@ description: The Bowling Game Kata in JavaScript
 tags:
     - javascript
     - kata
-    - video
 ---
 
 I created a video showing the Bowling Game Kata in JavaScript. This is a kata originally created by Uncle Bob Martin. I wanted to show the kata in JavaScript. This is a great kata to do when learning TDD, a new language, or practicing using your editor more efficiently. Thanks for watching!

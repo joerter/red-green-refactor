@@ -3,7 +3,7 @@ title: Integration Test Entropy
 date: '2020-02-19'
 description: Why do integration tests become brittle and lose value over time?
 tags:
-    - general
+    - craftsmanship
 ---
 
 ## What is Entropy?
