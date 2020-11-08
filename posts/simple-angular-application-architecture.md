@@ -1,63 +1,33 @@
 ---
-title: Simple and Effective Angular State Management
+title: 10 Tips For Awesome Angular Apps
 date: '2020-11-07'
-description: A simple way to architect your Angular apps for elegent state management.
+description: 10 tips from my experience building Angular apps.
 tags:
     - angular
 ---
 
-## Summary
+This article started out as an explanation of my approach to handling state management in Angular apps. Instead, it's turned into a list of lessons I've learned while using Angular for around 3 years. I hope you find a point or two useful or at least find one of the articles I've linked to informative and a good jumping off point for your own exploration and learning. Enjoy!
 
-When it comes to state management in Angular apps, there are plenty libraries to choose from. A few examples are [NGRX](https://ngrx.io/),
-[Akita](https://datorama.github.io/akita/), and [NGXS](https://datorama.github.io/akita/).
-You can even use libraries more popular in the React ecosystem like [Redux](https://redux.js.org/) and [Mobx](https://mobx.js.org/README.html). The point of this article is that while all of these projects are solid, they may not always be necessary and may not fit into your team or project. I believe that by understanding the basic features and concepts provided by Angular and sprinkling in a few conventions, you can achieve a simple and effective state management solution without the mental overhead or boilerplate of a 3rd party library.
+1. When it comes to state management in Angular apps, there are plenty libraries to choose from. A few examples are [NGRX](https://ngrx.io/),
+[Akita](https://datorama.github.io/akita/), and [NGXS](https://www.ngxs.io/).
+You can even use libraries more popular in the React ecosystem like [Redux](https://redux.js.org/) and [Mobx](https://mobx.js.org/README.html). In my experience, these libraries add boilerplate and knowledge overhead and you're usually better off using vanilla Angular with @Input and @Output properties and services. [You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367) is a great article about this topic from the React perspective, but I think the same principles apply to Angular.
 
-The main ideas in this post:
+2. "Prop drilling" is the problem where you need to pass @Input or @Output properties through multiple layers in the component tree. I recommend utilizing a service to manage state when passing data through 3 or more layers of components. You can even use [hierarchical dependency injection](https://angular.io/guide/hierarchical-dependency-injection) to make services visible only to a certain component tree instead of global to the entire application.
 
-1. **Composition** - Think about "apps of apps" when designing your Angular applications. Components should only control the state necessary for their function. Use "smart" and "dumb" components when it makes sense.
+3. [Favor composition over inheritance](https://en.wikipedia.org/wiki/Composition_over_inheritance). Since Angular components use TypeScript classes, it can be tempting to reach for inheritance to share common functionality. In my experience, this leads to a rigid architecture that is difficult to debug and follow. Compose components, refactor shared functionality into services, or use shared directives instead.
 
-2. **Unidirectional Dataflow and Immutability** - Angular was designed to enforce unidirectional dataflow. Use services to avoid "prop drilling" through multiple components. Use OnPush change detection to have more control over change detection and increase performance. This necessitates immutable @Input properties.
+4. [Dynamic component loading](https://angular.io/guide/dynamic-component-loader) is possible in Angular, but almost never useful at the application level. I can see its uses in libraries, but for applications, I've never seen a problem solved with dynamic components that couldn't have been solved more easily with a simple `*ngFor` or `*ngIf` directive.
 
-3. **Unit Testing** - Use [Spectator](https://github.com/ngneat/spectator) and avoid testing implementation details of components.
+5. Use the OnPush Change Detection Strategy. This results in increased performance, but that's not the main reason I recommend it. OnPush gives you more control over when change detection runs and forces good practices when it comes to immutability and changing @Input properties. Netanel Basal has a fantastic article about OnPush [here](https://netbasal.com/a-comprehensive-guide-to-angular-onpush-change-detection-strategy-5bac493074a4).
 
-Let's dive into each of these points in more detail:
+6. Use the [async pipe](https://angular.io/api/common/AsyncPipe). Subscribing to streams in components can cause memory leaks if not unsubscribed during the `OnDestroy` lifecycle method. Instead, let the async pipe handle this for you. It runs change detection when using OnPush Change Detection too!
 
-## Composition
+7. For DTOs and communicating with your backend, favor interfaces over classes. The simple reason is that TypeScript interfaces only exist at compile time and are not present at runtime. Classes, on the other hand, are bundled with the application and can cause unnecessary weight if you're only using them as a data structure.
 
-- Keep components simple
-- Keep the smart / dumb pattern in mind, but don't be dogmatic
-- When it makes sense, separate components into smart ones that create and change state, and dumb components that simply display data
-- Favor composition over inheritance (https://en.wikipedia.org/wiki/Composition_over_inheritance). If you find yourself reaching for inheritance. Consider component composition, a directive, or a shared service first.
-- Diagram showing how state is "lifted up" and shared between children. Create "Apps of apps"
+8. Strive for immutability in your applications. You may find success using a library like [Immutable.js](https://immutable-js.github.io/immutable-js/docs/#/) to force immutability, but I've found that using OnPush change detection and having a good code review process can be just as good without the 3rd party library overhead. This can really be as simple as using [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) and reassigning to array and object fields in components.
 
-In Redux and Redux-inspired state management libraries, there is a global store that is meant to hold the state of the entire application. The alternative is to use local state and component composition to achieve an "app of apps" like architecture. This means that each component should know only about it's little slice of the application. As an app grows and becomes more complex, state is "lifted up" into top level components that delegate behavior to their children.
+9. Use [Spectator](https://github.com/ngneat/spectator) for your unit tests. This library is awesome. When I first started using Angular, I found the TestBed and built in testing tools so cumbersome I favored writing [class based tests for every component](https://angular.io/guide/testing-components-basics#component-class-testing). With Spectator, tests are a breeze to setup and it helps you write better tests. It does this by emulating the same selectors used by the [Testing Library](https://testing-library.com/) family.
 
-![rgr-banking](../public/angular-state-management/example-app.jpg)
+10. Don't test implementation details of your components. Another way of saying this is that you shouldn't have a test file for every single one of your components, directives, or services. Instead, test the **behavior** of your application like a user would at a higher level in the component tree. In the OOP world, Uncle Bob calls this [Test Contra-variance](https://blog.cleancoder.com/uncle-bob/2017/10/03/TestContravariance.html). By following this, you will end up with tests that may exercise the functionality of multiple components at once. This leads to tests that are far more valuable and less prone to breaking due to minor refactors in component structure.
 
-Let's turn to an example application to help illustrate this concept. Imagine we are creating an online banking application for the Red Green Refactor Bank. Right now, our app has 3 main sections. Customer Signup, Account Summary, and Account Detail. With the magic of composition these three sections can stand alone with their own application state. Let's dive deeper into the Customer Signup section.
-
-![signup-wizard](../public/angular-state-management/signup.jpg)
-
-The Signup section is a wizard with distinct steps that guide existing customers through the process of gaining access to online banking. In this example each step has its own state with validation, forms, and whatever else is needed to accomplish the task for the user. These steps are composed and managed by the Customer Signup Wizard component, but that parent component only needs to know about the final state of the information gathered in each individual step. It doesn't need to know anything about the details of how a password is validated or how to gather a user's address.
-
-If you've been working in Angular, React, or another component based framework, this probably all seems pretty basic to you. But it's worth touching on because having a well thought out component architecture is essential to attaining elegant state management.
-
-- touch on smart / dumb components and composition over inheritance with simularity to object oriented classes here.
-
-## Unidirectional Dataflow
-- In my opinion, the best feature of Angular is the enforcement of unidirectional dataflow
-- Pass data down via input properties and use Output bindings or services to pass data up
-- Avoid using services to pass data and NEVER modify an input property by reference! (More on that later)
-
-## Immutability
-- JavaScript (and TypeScript) does not enforce Immutability no matter how much I wish it did.
-- There are libraries that can achieve this for you, but in my opinion, the overhead is not worth it
-- You can also add linting rules to your project, but this also isn't worth it in my opinion.
-- It's not great, but the best thing to do is to probably have conversations in PRs.
-
-## Unit Testing
-- Use Spectator
-- Unit test high up in the component chain
-- Your tests will be more **behavior** oriented instead of testing the implementation details of lower level components.
-
-## Conclusion
+Thanks for reading! Let me know if you've found this article helpful or disagree with any of these points.
