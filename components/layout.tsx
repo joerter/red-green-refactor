@@ -3,13 +3,21 @@ import styles from './layout.module.css';
 import Link from 'next/link';
 
 export const siteTitle = 'Red Green Refactor';
+const defaultImage = 'https://redgreenrefactor.dev/images/logo-cropped.png'
+const defaultDescription = 'Red Green Refactor is the personal blog site for John Oerter, a software developer in Omaha, NE'
 
 export default function Layout({
     children,
     home,
+    metaImage,
+    metaTitle,
+    metaDescription
 }: {
     children: React.ReactNode;
     home?: boolean;
+    metaImage: string;
+    metaTitle: string;
+    metaDescription: string;
 }) {
     return (
         <div className={styles.container}>
@@ -17,13 +25,17 @@ export default function Layout({
                 <link rel="icon" href="/favicon.ico" />
                 <meta
                     name="description"
-                    content="Red Green Refactor is the personal blog site for John Oerter, a software developer in Omaha, NE"
+                    content={metaDescription || defaultDescription}
+                />
+                <meta
+                    name="og:description"
+                    content={metaDescription || defaultDescription}
                 />
                 <meta
                     property="og:image"
-                    content="https://redgreenrefactor.dev/images/logo-cropped.png"
+                    content={metaImage || defaultImage}
                 />
-                <meta name="og:title" content={siteTitle} />
+                <meta name="og:title" content={metaTitle || siteTitle} />
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
             <header className={styles.header}>

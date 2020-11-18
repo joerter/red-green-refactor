@@ -90,7 +90,7 @@ export async function getPostData(id: string) {
         id,
         contentHtml,
         tags,
-        ...(matterResult.data as { date: string; title: string }),
+        ...(matterResult.data as { date: string; title: string; coverImagePath: string; description: string; }),
     };
 }
 

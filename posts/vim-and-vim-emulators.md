@@ -2,6 +2,7 @@
 title: Vim and Vim Emulators
 date: '2020-11-16'
 description: Why I use Vim emulators instead of pure vim.
+coverImagePath: '/vim-and-vim-emulators/cover.png'
 tags:
     - vim
 ---

@@ -14,10 +14,12 @@ export default function Post({
         date: string;
         contentHtml: string;
         tags: string[];
+        coverImagePath: string;
+        description: string;
     };
 }) {
     return (
-        <Layout>
+        <Layout metaImage={postData.coverImagePath} metaTitle={postData.title} metaDescription={postData.description}>
             <Head>
                 <title>{postData.title}</title>
             </Head>
