@@ -17,21 +17,21 @@ export default function Layout(props : {
         <div className={styles.container}>
             <Head>
                 <link rel="icon" href="/favicon.ico" />
-                <meta name="title" property="og:title" content={props.metaTitle || siteTitle}>
+                <meta name="title" property="og:title" content={props.metaTitle || siteTitle}/>
                 <meta
                     name="description"
                     property="og:description"
                     content={props.metaDescription || defaultDescription}
-                >
+                />
                 <meta
                     name="author"
                     content="John Oerter"
-                >
+                />
                 <meta
                     name="image"
                     property="og:image"
                     content={props.metaImage ? `https://redgreenrefactor.dev${props.metaImage}` : defaultImage}
-                >
+                />
             </Head>
             <header className={styles.header}>
                 <Link href="/">
