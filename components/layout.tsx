@@ -27,7 +27,7 @@ export default function Layout(props : {
                 />
                 <meta
                     name="og:image"
-                    content={props.metaImage || defaultImage}
+                    content={props.metaImage ? `https://redgreenrefactor.dev${props.metaImage}` : defaultImage}
                 />
                 <meta name="og:title" content={props.metaTitle || siteTitle} />
                 <meta name="twitter:card" content="summary_large_image" />
