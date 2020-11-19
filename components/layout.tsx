@@ -26,7 +26,7 @@ export default function Layout(props : {
                     content={props.metaDescription || defaultDescription}
                 />
                 <meta
-                    property="og:image"
+                    name="og:image"
                     content={props.metaImage || defaultImage}
                 />
                 <meta name="og:title" content={props.metaTitle || siteTitle} />
