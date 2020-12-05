@@ -10,6 +10,7 @@ export default function Post({
     postData,
 }: {
     postData: {
+        id: string;
         title: string;
         date: string;
         contentHtml: string;
@@ -18,9 +19,15 @@ export default function Post({
         description: string;
     };
 }) {
+    const canonicalUrl = `https://redgreenrefactor.dev/posts/${postData.id}`;
     return (
-        <Layout metaImage={postData.coverImagePath} metaTitle={postData.title} metaDescription={postData.description}>
+        <Layout
+            metaImage={postData.coverImagePath}
+            metaTitle={postData.title}
+            metaDescription={postData.description}
+        >
             <Head>
+                <link rel="canonical" href={canonicalUrl} />
                 <title>{postData.title}</title>
             </Head>
             <article>
