@@ -5,6 +5,7 @@ import Date from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Tags from '../../components/tags';
+import Newsletter from '../../components/newsletter';
 
 export default function Post({
     postData,
@@ -29,6 +30,7 @@ export default function Post({
             <Head>
                 <link rel="canonical" href={canonicalUrl} />
                 <title>{postData.title}</title>
+                <link href="/prism.css" rel="stylesheet" />
             </Head>
             <article>
                 <h1 className={utilStyles.headingXl}>{postData.title}</h1>
@@ -40,6 +42,7 @@ export default function Post({
                     dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
                 />
             </article>
+            <Newsletter></Newsletter>
         </Layout>
     );
 }
