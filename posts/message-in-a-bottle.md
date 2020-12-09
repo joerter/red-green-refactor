@@ -8,9 +8,9 @@ tags:
 
 ## The Social Network for Deserted Islanders
 
-I've been spending time learning Clojure lately, and I wanted to build a super simple web application in order to put my learning to use. Message in a Bottle is a fake social network for people stranded on deserted islands. It allows them to read and send messages to other stranded people. Messages are at the mercy of the wind and waves so you'll never know who will get your message or what you will receive. But that's part of the fun!
+I've been spending time learning Clojure lately, and I wanted to build a super simple web application to put my learning to use. Message in a Bottle is a fake social network for people stranded on deserted islands. It allows them to read and send messages to other stranded people. Messages are at the mercy of the wind and waves so you'll never know who will get your message or what you will receive. But that's part of the fun!
 
-People stranded on deserted islands aren't lucky enough to have access to the social networks you and I use and enjoy everyday. How can they waste hours of their day scrolling through timelines or experience extreme jealousy at that new rain water collector their friend built? Message in a Bottle is the answer.
+People stranded on deserted islands aren't lucky enough to have access to the social networks you and I use and enjoy every day. How can they waste hours of their day scrolling through timelines or experience extreme jealousy at that new rainwater collector their friend built? Message in a Bottle is the answer.
 
 In this post, I'll dive into how I built the app and what I learned. If you'd like to check out the app, visit [https://message-in-a-bottle-1.herokuapp.com/](https://message-in-a-bottle-1.herokuapp.com/). My apologies if the performance is slow or the app takes a minute to respond. I'm using the Free level of Heroku which sleeps after 30 minutes of inactivity. Feel free to read and write a few messages! I need to find a way to increase the daily active users of Message in a Bottle before the IPO... 😆
 
@@ -18,7 +18,7 @@ You can find the source code [here](https://github.com/joerter/message-in-a-bott
 
 ## Overview
 
-In order to keep Message in a Bottle simple, I decided to use an MVC-style approach with no client-side code. That way, I could just focus on a simple request response cycle with a simple form and data store for persisting the messages. Since the messages aren't relational in any way, I decided to persist them using Redis. I've used Redis in the past with JavaScript and C# and generally find it to be a joy to use.
+In order to keep Message in a Bottle simple, I decided to use an MVC-style approach with no client-side code. That way, I could just focus on a simple request-response cycle with a simple form and data store for persisting the messages. Since the messages aren't relational in any way, I decided to persist them using Redis. I've used Redis in the past with JavaScript and C# and generally find it to be a joy to use.
 
 Here's a quick list of the main tools I used:
 
@@ -46,11 +46,11 @@ I used the Compojure Leiningen template to scaffold the app with `lein new compo
   (route/not-found "Not Found"))
 ```
 
-Each HTTP method function from Compojure takes a string for the route url along with a function to run for the response. I chose to setup these functions in a `handlers.clj` file. I'm not sure if that's idiomatic Clojure or not since they are essentially controllers, but that's how I did it. I would love to hear any stylistic improvements or suggestions anyone has here.
+Each HTTP method function from Compojure takes a string for the route url along with a function to run for the response. I chose to set up these functions in a `handlers.clj` file. I'm not sure if that's idiomatic Clojure or not since they are essentially controllers, but that's how I did it. I would love to hear any stylistic improvements or suggestions anyone has here.
 
 Take a closer look at the `(POST "/send-message" [message] (handlers/sent-message message))` form. The `[message]` argument is the value of the message textbox POSTed to the server from the web browser. It is passed on as an argument to the `handlers/sent-message` function.
 
-This is one of the reasons I really enjoy writing Clojure. This code is highly readable and low-ceremony. If I compare this to C# and ASP.NET Core, which is where I spend most of my time writing web applicaitons, I notice the lack of syntax, keywords (public, class, namespace, etc.), and type declarations. We can debate on the merits of statically vs. dynamically typed languages, but there's no denying that Clojure is a simple and beautiful language to read.
+This is one of the reasons I really enjoy writing Clojure. This code is highly readable and low-ceremony. If I compare this to C# and ASP.NET Core, which is where I spend most of my time writing web applications, I notice the lack of syntax, keywords (public, class, namespace, etc.), and type declarations. We can debate the merits of statically vs. dynamically typed languages, but there's no denying that Clojure is a simple and beautiful language to read.
 
 ## Writing HTML with Hiccup
 
@@ -84,7 +84,7 @@ Carmine, the Clojure Redis client I used, gives an example of a `wcar*` macro to
 (defmacro wcar* [& body] `(car/wcar server1-conn ~@body))
 ```
 
-This saves me from having to reference the `server1-conn` definition everytime I use a command. Therefore, saving a message is as easy as calling `SET` with a UUID:
+This saves me from having to reference the `server1-conn` definition every time I use a command. Therefore, saving a message is as easy as calling `SET` with a UUID:
 
 ```clojure
 (defn save-message [message]
