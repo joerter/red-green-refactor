@@ -6,6 +6,7 @@ import utilStyles from '../../styles/utils.module.css';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Tags from '../../components/tags';
 import Newsletter from '../../components/newsletter';
+import { useEffect } from 'react';
 
 export default function Post({
     postData,
@@ -21,6 +22,11 @@ export default function Post({
     };
 }) {
     const canonicalUrl = `https://redgreenrefactor.dev/posts/${postData.id}`;
+
+    useEffect(() => {
+        window['Prism'].highlightAll();
+    });
+
     return (
         <Layout
             metaImage={postData.coverImagePath}

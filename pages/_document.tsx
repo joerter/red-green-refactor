@@ -8,7 +8,7 @@ class MyDocument extends Document {
                 <body>
                     <Main />
                     <NextScript />
-                    <script src="/prism.js"></script>
+                    <script src="/prism.js" data-manual></script>
                     <script
                         async
                         defer
