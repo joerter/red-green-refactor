@@ -1,4 +1,3 @@
-import { newsletterForm } from '../lib/convert-kit';
 import { useEffect } from 'react';
 
 export default function Newsletter() {
