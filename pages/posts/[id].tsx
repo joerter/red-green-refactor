@@ -24,7 +24,10 @@ export default function Post({
     const canonicalUrl = `https://redgreenrefactor.dev/posts/${postData.id}`;
 
     useEffect(() => {
-        window['Prism'].highlightAll();
+        const timer = setTimeout(() => {
+            window['Prism'].highlightAll();
+        }, 1000);
+        return () => clearTimeout(timer);
     });
 
     return (
