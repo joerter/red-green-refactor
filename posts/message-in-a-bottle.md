@@ -2,6 +2,7 @@
 title: Message in a Bottle - A Simple Clojure App
 date: '2020-12-05'
 description: I built a very simple app to start learning Clojure
+coverImagePath: '/message-in-a-bottle/cover.png'
 tags:
     - clojure
 ---
