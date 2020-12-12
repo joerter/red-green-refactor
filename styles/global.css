@@ -66,3 +66,7 @@ img {
     max-width: 100%;
     display: block;
 }
+
+pre {
+    overflow: auto;
+}
