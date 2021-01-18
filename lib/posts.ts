@@ -4,9 +4,17 @@ import matter from 'gray-matter';
 import remark from 'remark';
 import html from 'remark-html';
 
+export interface PostData {
+    date: string;
+    title: string;
+    id: string;
+    tags: string[];
+    description: string;
+}
+
 const postsDirectory = path.join(process.cwd(), 'posts');
 
-export function getSortedPostsData() {
+export function getSortedPostsData(): PostData[] {
     // Get file names under /posts
     const fileNames = fs.readdirSync(postsDirectory);
     const allPostsData = fileNames.map((fileName) => {
@@ -25,7 +33,7 @@ export function getSortedPostsData() {
         return {
             id,
             tags,
-            ...(matterResult.data as { date: string; title: string }),
+            ...(matterResult.data as { date: string; title: string; description: string }),
         };
     });
     // Sort posts by date
@@ -94,7 +102,7 @@ export async function getPostData(id: string) {
     };
 }
 
-export async function getPostsByTag(tag: string) {
+export function getPostsByTag(tag: string) {
     // Get file names under /posts
     const fileNames = fs.readdirSync(postsDirectory);
     const allPostsData = fileNames
@@ -116,7 +124,7 @@ export async function getPostsByTag(tag: string) {
             return {
                 id,
                 tags,
-                ...(matterResult.data as { date: string; title: string }),
+                ...(matterResult.data as { date: string; title: string; description: string }),
             };
         })
         .filter((p) => p != null);
@@ -154,4 +162,21 @@ export function getAllPostTags() {
             tag: t,
         },
     }));
+}
+
+export function blogPostsRssXml(posts: PostData[]): { rssItemsXml: string, latestPostDate: string } {
+    const formatDate = (date: string) => new Date(date).toUTCString();
+    const rssItemsXml = posts.map(p => {
+       return `<item>
+                <title>${p.title}</title>
+                <link>https://redgreenrefactor.dev/posts/${p.id}</link>
+                <pubDate>${formatDate(p.date)}</pubDate>
+                <description>${p.description}</description>
+              </item>`;
+    }).join('');
+
+    return {
+        rssItemsXml,
+        latestPostDate: formatDate(posts[0].date)
+    }
 }

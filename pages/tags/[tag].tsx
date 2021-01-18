@@ -53,7 +53,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const tagPostsData = await getPostsByTag(params.tag as string);
+    const tagPostsData = getPostsByTag(params.tag as string);
     return {
         props: {
             tagPostsData,
