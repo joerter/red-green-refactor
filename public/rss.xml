@@ -5,9 +5,14 @@
                             <link>https://redgreenrefactor.dev</link>
                             <description>Clojure and software craftsmanship</description>
                             <language>en</language>
-                            <lastBuildDate>Sat, 05 Dec 2020 00:00:00 GMT</lastBuildDate>
+                            <lastBuildDate>Sat, 30 Jan 2021 00:00:00 GMT</lastBuildDate>
                             <atom:link href="https://redgreenrefactor.dev/rss.xml" rel="self" type="application/rss+xml" />
                             <item>
+                <title>Bowling Game Kata in Clojure</title>
+                <link>https://redgreenrefactor.dev/posts/bowling-game-clojure</link>
+                <pubDate>Sat, 30 Jan 2021 00:00:00 GMT</pubDate>
+                <description>The Bowling Game Kata in Clojure</description>
+              </item><item>
                 <title>Message in a Bottle - A Simple Clojure App</title>
                 <link>https://redgreenrefactor.dev/posts/message-in-a-bottle</link>
                 <pubDate>Sat, 05 Dec 2020 00:00:00 GMT</pubDate>
