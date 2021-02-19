@@ -1,32 +1,42 @@
 import fs from 'fs';
 import path from 'path';
-import { getSortedPostsData, blogPostsRssXml, getPostsByTag, PostData } from './posts';
+import {
+    getSortedPostsData,
+    blogPostsRssXml,
+    getPostsByTag,
+    PostData,
+} from './posts';
 
 function writeRss(posts: PostData[], filename: string) {
     const { rssItemsXml, latestPostDate } = blogPostsRssXml(posts);
     const selfLink = `https://redgreenrefactor.dev/${filename}.xml`;
-    const xml =  `<?xml version="1.0" ?>
-                    <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-                        <channel>
-                            <title>Red Green Refactor</title>
-                            <link>https://redgreenrefactor.dev</link>
-                            <description>Clojure and software craftsmanship</description>
-                            <language>en</language>
-                            <lastBuildDate>${latestPostDate}</lastBuildDate>
-                            <atom:link href="${selfLink}" rel="self" type="application/rss+xml" />
-                            ${rssItemsXml}
-                        </channel>
-                    </rss>`;
+    const xml = `<?xml version="1.0" encoding="utf-8"?>
+                    <feed xmlns="http://www.w3.org/2005/Atom">
+                        <title>Red Green Refactor</title>
+                        <link rel="self" href="${selfLink}" />
+                        <updated>${latestPostDate}</updated>
+                        <author>
+                            <name>John Oerter</name>
+                            <email>john@johnoerter.me</email>
+                            <uri>https://johnoerter.me</uri>
+                        </author>
+                        <id>https://redgreenrefactor.dev</id>
+                        <icon>/favicon.ico</icon>
+                        <logo>/images/logo-cropped.png</logo>
+                        <subtitle>Clojure and software craftsmanship</subtitle>
+
+                        ${rssItemsXml}
+                    </feed>`;
 
     const publicDirectory = path.join(process.cwd(), 'public');
-    fs.writeFile(`${publicDirectory}/${filename}.xml`, xml, err => {
+    fs.writeFile(`${publicDirectory}/${filename}.xml`, xml, (err) => {
         if (err) {
-            console.error(err)
-            return
+            console.error(err);
+            return;
         }
 
-        console.log('Success!')
-    })
+        console.log('Success!');
+    });
 }
 
 function generateMasterFeed() {
@@ -36,7 +46,7 @@ function generateMasterFeed() {
 }
 
 function generateClojureFeed() {
-    console.log('Generating clojure feed rss...')
+    console.log('Generating clojure feed rss...');
     const tagPosts = getPostsByTag('clojure');
     writeRss(tagPosts.posts, 'clojure');
 }

@@ -1,22 +1,41 @@
-<?xml version="1.0" ?>
-                    <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-                        <channel>
-                            <title>Red Green Refactor</title>
-                            <link>https://redgreenrefactor.dev</link>
-                            <description>Clojure and software craftsmanship</description>
-                            <language>en</language>
-                            <lastBuildDate>Sat, 30 Jan 2021 00:00:00 GMT</lastBuildDate>
-                            <atom:link href="https://redgreenrefactor.dev/clojure.xml" rel="self" type="application/rss+xml" />
-                            <item>
+<?xml version="1.0" encoding="utf-8"?>
+                    <feed xmlns="http://www.w3.org/2005/Atom">
+                        <title>Red Green Refactor</title>
+                        <link rel="self" href="https://redgreenrefactor.dev/clojure.xml" />
+                        <updated>2021-01-30T00:00:00.000Z</updated>
+                        <author>
+                            <name>John Oerter</name>
+                            <email>john@johnoerter.me</email>
+                            <uri>https://johnoerter.me</uri>
+                        </author>
+                        <id>https://redgreenrefactor.dev</id>
+                        <icon>/favicon.ico</icon>
+                        <logo>/images/logo-cropped.png</logo>
+                        <subtitle>Clojure and software craftsmanship</subtitle>
+
+                        <entry>
+                <id>https://redgreenrefactor.dev/posts/bowling-game-clojure</id>
                 <title>Bowling Game Kata in Clojure</title>
-                <link>https://redgreenrefactor.dev/posts/bowling-game-clojure</link>
-                <pubDate>Sat, 30 Jan 2021 00:00:00 GMT</pubDate>
-                <description>The Bowling Game Kata in Clojure</description>
-              </item><item>
+                <updated>2021-01-30T00:00:00.000Z</updated>
+                <author>
+                    <name>John Oerter</name>
+                </author>
+                <link
+                    rel="alternate"
+                    href="https://redgreenrefactor.dev/posts/bowling-game-clojure"
+                />
+                <summary>The Bowling Game Kata in Clojure</summary>
+              </entry><entry>
+                <id>https://redgreenrefactor.dev/posts/message-in-a-bottle</id>
                 <title>Message in a Bottle - A Simple Clojure App</title>
-                <link>https://redgreenrefactor.dev/posts/message-in-a-bottle</link>
-                <pubDate>Sat, 05 Dec 2020 00:00:00 GMT</pubDate>
-                <description>I built a very simple app to start learning Clojure</description>
-              </item>
-                        </channel>
-                    </rss>
+                <updated>2020-12-05T00:00:00.000Z</updated>
+                <author>
+                    <name>John Oerter</name>
+                </author>
+                <link
+                    rel="alternate"
+                    href="https://redgreenrefactor.dev/posts/message-in-a-bottle"
+                />
+                <summary>I built a very simple app to start learning Clojure</summary>
+              </entry>
+                    </feed>

@@ -32,7 +32,6 @@ export default function About() {
 
                     <div className={aboutStyles.links}>
                         <a href="mailto:john@johnoerter.me">Email</a>
-                        <a href="https://twitter.com/john_oerter">Twitter</a>
                         <a href="https://github.com/joerter">GitHub</a>
                         <a href="https://www.linkedin.com/in/johnoerter/">
                             LinkedIn

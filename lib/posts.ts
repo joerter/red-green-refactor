@@ -33,7 +33,11 @@ export function getSortedPostsData(): PostData[] {
         return {
             id,
             tags,
-            ...(matterResult.data as { date: string; title: string; description: string }),
+            ...(matterResult.data as {
+                date: string;
+                title: string;
+                description: string;
+            }),
         };
     });
     // Sort posts by date
@@ -98,7 +102,12 @@ export async function getPostData(id: string) {
         id,
         contentHtml,
         tags,
-        ...(matterResult.data as { date: string; title: string; coverImagePath: string; description: string; }),
+        ...(matterResult.data as {
+            date: string;
+            title: string;
+            coverImagePath: string;
+            description: string;
+        }),
     };
 }
 
@@ -124,7 +133,11 @@ export function getPostsByTag(tag: string) {
             return {
                 id,
                 tags,
-                ...(matterResult.data as { date: string; title: string; description: string }),
+                ...(matterResult.data as {
+                    date: string;
+                    title: string;
+                    description: string;
+                }),
             };
         })
         .filter((p) => p != null);
@@ -164,19 +177,30 @@ export function getAllPostTags() {
     }));
 }
 
-export function blogPostsRssXml(posts: PostData[]): { rssItemsXml: string, latestPostDate: string } {
-    const formatDate = (date: string) => new Date(date).toUTCString();
-    const rssItemsXml = posts.map(p => {
-       return `<item>
+export function blogPostsRssXml(
+    posts: PostData[]
+): { rssItemsXml: string; latestPostDate: string } {
+    const formatDate = (date: string) => new Date(date).toISOString();
+    const rssItemsXml = posts
+        .map((p) => {
+            return `<entry>
+                <id>https://redgreenrefactor.dev/posts/${p.id}</id>
                 <title>${p.title}</title>
-                <link>https://redgreenrefactor.dev/posts/${p.id}</link>
-                <pubDate>${formatDate(p.date)}</pubDate>
-                <description>${p.description}</description>
-              </item>`;
-    }).join('');
+                <updated>${formatDate(p.date)}</updated>
+                <author>
+                    <name>John Oerter</name>
+                </author>
+                <link
+                    rel="alternate"
+                    href="https://redgreenrefactor.dev/posts/${p.id}"
+                />
+                <summary>${p.description}</summary>
+              </entry>`;
+        })
+        .join('');
 
     return {
         rssItemsXml,
-        latestPostDate: formatDate(posts[0].date)
-    }
+        latestPostDate: formatDate(posts[0].date),
+    };
 }

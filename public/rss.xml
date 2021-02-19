@@ -1,67 +1,161 @@
-<?xml version="1.0" ?>
-                    <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-                        <channel>
-                            <title>Red Green Refactor</title>
-                            <link>https://redgreenrefactor.dev</link>
-                            <description>Clojure and software craftsmanship</description>
-                            <language>en</language>
-                            <lastBuildDate>Sat, 30 Jan 2021 00:00:00 GMT</lastBuildDate>
-                            <atom:link href="https://redgreenrefactor.dev/rss.xml" rel="self" type="application/rss+xml" />
-                            <item>
+<?xml version="1.0" encoding="utf-8"?>
+                    <feed xmlns="http://www.w3.org/2005/Atom">
+                        <title>Red Green Refactor</title>
+                        <link rel="self" href="https://redgreenrefactor.dev/rss.xml" />
+                        <updated>2021-02-18T00:00:00.000Z</updated>
+                        <author>
+                            <name>John Oerter</name>
+                            <email>john@johnoerter.me</email>
+                            <uri>https://johnoerter.me</uri>
+                        </author>
+                        <id>https://redgreenrefactor.dev</id>
+                        <icon>/favicon.ico</icon>
+                        <logo>/images/logo-cropped.png</logo>
+                        <subtitle>Clojure and software craftsmanship</subtitle>
+
+                        <entry>
+                <id>https://redgreenrefactor.dev/posts/rss-next-js</id>
+                <title>RSS Feed for Next.js the Easy Way</title>
+                <updated>2021-02-18T00:00:00.000Z</updated>
+                <author>
+                    <name>John Oerter</name>
+                </author>
+                <link
+                    rel="alternate"
+                    href="https://redgreenrefactor.dev/posts/rss-next-js"
+                />
+                <summary>An easy way to generate an RSS Feed for your Next.js site.</summary>
+              </entry><entry>
+                <id>https://redgreenrefactor.dev/posts/bowling-game-clojure</id>
                 <title>Bowling Game Kata in Clojure</title>
-                <link>https://redgreenrefactor.dev/posts/bowling-game-clojure</link>
-                <pubDate>Sat, 30 Jan 2021 00:00:00 GMT</pubDate>
-                <description>The Bowling Game Kata in Clojure</description>
-              </item><item>
+                <updated>2021-01-30T00:00:00.000Z</updated>
+                <author>
+                    <name>John Oerter</name>
+                </author>
+                <link
+                    rel="alternate"
+                    href="https://redgreenrefactor.dev/posts/bowling-game-clojure"
+                />
+                <summary>The Bowling Game Kata in Clojure</summary>
+              </entry><entry>
+                <id>https://redgreenrefactor.dev/posts/message-in-a-bottle</id>
                 <title>Message in a Bottle - A Simple Clojure App</title>
-                <link>https://redgreenrefactor.dev/posts/message-in-a-bottle</link>
-                <pubDate>Sat, 05 Dec 2020 00:00:00 GMT</pubDate>
-                <description>I built a very simple app to start learning Clojure</description>
-              </item><item>
+                <updated>2020-12-05T00:00:00.000Z</updated>
+                <author>
+                    <name>John Oerter</name>
+                </author>
+                <link
+                    rel="alternate"
+                    href="https://redgreenrefactor.dev/posts/message-in-a-bottle"
+                />
+                <summary>I built a very simple app to start learning Clojure</summary>
+              </entry><entry>
+                <id>https://redgreenrefactor.dev/posts/vim-and-vim-emulators</id>
                 <title>Vim and Vim Emulators</title>
-                <link>https://redgreenrefactor.dev/posts/vim-and-vim-emulators</link>
-                <pubDate>Mon, 16 Nov 2020 00:00:00 GMT</pubDate>
-                <description>Why I use Vim emulators instead of pure vim.</description>
-              </item><item>
+                <updated>2020-11-16T00:00:00.000Z</updated>
+                <author>
+                    <name>John Oerter</name>
+                </author>
+                <link
+                    rel="alternate"
+                    href="https://redgreenrefactor.dev/posts/vim-and-vim-emulators"
+                />
+                <summary>Why I use Vim emulators instead of pure vim.</summary>
+              </entry><entry>
+                <id>https://redgreenrefactor.dev/posts/ten-tips-for-awesome-angular-apps</id>
                 <title>10 Tips For Awesome Angular Apps</title>
-                <link>https://redgreenrefactor.dev/posts/ten-tips-for-awesome-angular-apps</link>
-                <pubDate>Sat, 07 Nov 2020 00:00:00 GMT</pubDate>
-                <description>10 tips from my experience building Angular apps.</description>
-              </item><item>
+                <updated>2020-11-07T00:00:00.000Z</updated>
+                <author>
+                    <name>John Oerter</name>
+                </author>
+                <link
+                    rel="alternate"
+                    href="https://redgreenrefactor.dev/posts/ten-tips-for-awesome-angular-apps"
+                />
+                <summary>10 tips from my experience building Angular apps.</summary>
+              </entry><entry>
+                <id>https://redgreenrefactor.dev/posts/integration-test-entropy</id>
                 <title>Integration Test Entropy</title>
-                <link>https://redgreenrefactor.dev/posts/integration-test-entropy</link>
-                <pubDate>Wed, 19 Feb 2020 00:00:00 GMT</pubDate>
-                <description>Why do integration tests become brittle and lose value over time?</description>
-              </item><item>
+                <updated>2020-02-19T00:00:00.000Z</updated>
+                <author>
+                    <name>John Oerter</name>
+                </author>
+                <link
+                    rel="alternate"
+                    href="https://redgreenrefactor.dev/posts/integration-test-entropy"
+                />
+                <summary>Why do integration tests become brittle and lose value over time?</summary>
+              </entry><entry>
+                <id>https://redgreenrefactor.dev/posts/learning-to-love-testing-library</id>
                 <title>Learning to Love Testing Library</title>
-                <link>https://redgreenrefactor.dev/posts/learning-to-love-testing-library</link>
-                <pubDate>Fri, 07 Feb 2020 00:00:00 GMT</pubDate>
-                <description>How angular-testing-library and react-testing-library changed the way I think about UI tests.</description>
-              </item><item>
+                <updated>2020-02-07T00:00:00.000Z</updated>
+                <author>
+                    <name>John Oerter</name>
+                </author>
+                <link
+                    rel="alternate"
+                    href="https://redgreenrefactor.dev/posts/learning-to-love-testing-library"
+                />
+                <summary>How angular-testing-library and react-testing-library changed the way I think about UI tests.</summary>
+              </entry><entry>
+                <id>https://redgreenrefactor.dev/posts/bowling-game-javascript</id>
                 <title>Bowling Game Kata in JavaScript</title>
-                <link>https://redgreenrefactor.dev/posts/bowling-game-javascript</link>
-                <pubDate>Tue, 24 Dec 2019 00:00:00 GMT</pubDate>
-                <description>The Bowling Game Kata in JavaScript</description>
-              </item><item>
+                <updated>2019-12-24T00:00:00.000Z</updated>
+                <author>
+                    <name>John Oerter</name>
+                </author>
+                <link
+                    rel="alternate"
+                    href="https://redgreenrefactor.dev/posts/bowling-game-javascript"
+                />
+                <summary>The Bowling Game Kata in JavaScript</summary>
+              </entry><entry>
+                <id>https://redgreenrefactor.dev/posts/introduction-to-code-katas</id>
                 <title>Become a Better Developer with Code Katas</title>
-                <link>https://redgreenrefactor.dev/posts/introduction-to-code-katas</link>
-                <pubDate>Sun, 18 Aug 2019 00:00:00 GMT</pubDate>
-                <description>Learn how to make yourself a better developer by practicing code katas</description>
-              </item><item>
+                <updated>2019-08-18T00:00:00.000Z</updated>
+                <author>
+                    <name>John Oerter</name>
+                </author>
+                <link
+                    rel="alternate"
+                    href="https://redgreenrefactor.dev/posts/introduction-to-code-katas"
+                />
+                <summary>Learn how to make yourself a better developer by practicing code katas</summary>
+              </entry><entry>
+                <id>https://redgreenrefactor.dev/posts/correctness-vs-behavior</id>
                 <title>Correctness vs. Behavior</title>
-                <link>https://redgreenrefactor.dev/posts/correctness-vs-behavior</link>
-                <pubDate>Sun, 11 Aug 2019 00:00:00 GMT</pubDate>
-                <description>Dueling mentalities when it comes to writing unit tests</description>
-              </item><item>
+                <updated>2019-08-11T00:00:00.000Z</updated>
+                <author>
+                    <name>John Oerter</name>
+                </author>
+                <link
+                    rel="alternate"
+                    href="https://redgreenrefactor.dev/posts/correctness-vs-behavior"
+                />
+                <summary>Dueling mentalities when it comes to writing unit tests</summary>
+              </entry><entry>
+                <id>https://redgreenrefactor.dev/posts/introduction-to-tdd</id>
                 <title>A Quick Introduction to TDD</title>
-                <link>https://redgreenrefactor.dev/posts/introduction-to-tdd</link>
-                <pubDate>Sun, 04 Aug 2019 00:00:00 GMT</pubDate>
-                <description>What is TDD? Learn the basics in this quick post.</description>
-              </item><item>
+                <updated>2019-08-04T00:00:00.000Z</updated>
+                <author>
+                    <name>John Oerter</name>
+                </author>
+                <link
+                    rel="alternate"
+                    href="https://redgreenrefactor.dev/posts/introduction-to-tdd"
+                />
+                <summary>What is TDD? Learn the basics in this quick post.</summary>
+              </entry><entry>
+                <id>https://redgreenrefactor.dev/posts/be-an-engineer-not-a-user</id>
                 <title>Be an Engineer Not a User</title>
-                <link>https://redgreenrefactor.dev/posts/be-an-engineer-not-a-user</link>
-                <pubDate>Tue, 20 Oct 2015 00:00:00 GMT</pubDate>
-                <description>My thoughts on the mindset of a senior developer.</description>
-              </item>
-                        </channel>
-                    </rss>
+                <updated>2015-10-20T00:00:00.000Z</updated>
+                <author>
+                    <name>John Oerter</name>
+                </author>
+                <link
+                    rel="alternate"
+                    href="https://redgreenrefactor.dev/posts/be-an-engineer-not-a-user"
+                />
+                <summary>My thoughts on the mindset of a senior developer.</summary>
+              </entry>
+                    </feed>
