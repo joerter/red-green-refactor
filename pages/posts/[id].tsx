@@ -5,7 +5,6 @@ import Date from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Tags from '../../components/tags';
-import Newsletter from '../../components/newsletter';
 import { useEffect } from 'react';
 
 export default function Post({
@@ -51,7 +50,6 @@ export default function Post({
                     dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
                 />
             </article>
-            <Newsletter></Newsletter>
         </Layout>
     );
 }

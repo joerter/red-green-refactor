@@ -117,6 +117,6 @@ Easy peasy!
 
 I learned quite a bit with this project. It was a challenge to get started, but I'm glad I picked something simple enough to finish quickly. Next, I'm going to focus on some front-end ClojureScript development by working through the [https://eugenkiss.github.io/7guis/](https://eugenkiss.github.io/7guis/) project.
 
-Don't forget to subscribe to my newsletter so you'll get notified when I write my next post!
+Don't forget to subscribe to my RSS feed so you'll get notified when I write my next post!
 
 Until then, I'd love to hear what you thought about this post. Feel free to reach out to me on any of the methods listed in the [About](/about) page. If you're an experienced Clojure dev, I'd love to hear any improvements or suggestions you have. If you're new to Clojure let me know your thoughts on the language and if you found my explanations easy to understand.
