@@ -4,22 +4,14 @@ class MyDocument extends Document {
     render() {
         return (
             <Html>
-                <Head />
+                <Head>
+										<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132343202-6"></script>
+										<script src="/ga.js"></script>
+                </Head>
                 <body>
                     <Main />
                     <NextScript />
                     <script src="/prism.js" data-manual></script>
-                    <script
-                        async
-                        defer
-                        src="https://scripts.simpleanalyticscdn.com/latest.js"
-                    ></script>
-                    <noscript>
-                        <img
-                            src="https://queue.simpleanalyticscdn.com/noscript.gif"
-                            alt=""
-                        />
-                    </noscript>
                 </body>
             </Html>
         );

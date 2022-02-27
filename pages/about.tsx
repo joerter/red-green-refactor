@@ -22,9 +22,9 @@ export default function About() {
                         />
                         <p>
                             Hi! My name is John Oerter, and this is my personal
-                            blog. I'm a software developer in Omaha, NE focused
-                            on software craftsmanship and front-end
-                            technologies. If you would like to get in contact
+                            blog. I'm a software developer focused
+                            on software craftsmanship, front-end, and serverless AWS. 
+                            If you would like to get in contact
                             with me, send me an email or reach out on one of the
                             platforms below.
                         </p>
