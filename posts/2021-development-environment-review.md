@@ -45,4 +45,4 @@ Zsh along with [Oh My Zsh](https://ohmyz.sh/) has been my shell for years now. I
 
 [Link to my dotfiles repo on GitHub](https://github.com/joerter/dotfiles)
 
-Discuss on [Hacker News]()
+Discuss on [Hacker News](https://news.ycombinator.com/item?id=30490640) or [Dev.to](https://dev.to/joerter/2021-development-environment-review-34nl)
