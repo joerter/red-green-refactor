@@ -2,7 +2,7 @@
                     <feed xmlns="http://www.w3.org/2005/Atom">
                         <title>Red Green Refactor</title>
                         <link rel="self" href="https://redgreenrefactor.dev/rss.xml" />
-                        <updated>2021-02-18T00:00:00.000Z</updated>
+                        <updated>2022-02-27T00:00:00.000Z</updated>
                         <author>
                             <name>John Oerter</name>
                             <email>john@johnoerter.me</email>
@@ -14,17 +14,17 @@
                         <subtitle>Clojure and software craftsmanship</subtitle>
 
                         <entry>
-                <id>https://redgreenrefactor.dev/posts/rss-next-js</id>
-                <title>RSS Feed for Next.js the Easy Way</title>
-                <updated>2021-02-18T00:00:00.000Z</updated>
+                <id>https://redgreenrefactor.dev/posts/2021-development-environment-review</id>
+                <title>2021 Development Environment Review</title>
+                <updated>2022-02-27T00:00:00.000Z</updated>
                 <author>
                     <name>John Oerter</name>
                 </author>
                 <link
                     rel="alternate"
-                    href="https://redgreenrefactor.dev/posts/rss-next-js"
+                    href="https://redgreenrefactor.dev/posts/2021-development-environment-review"
                 />
-                <summary>An easy way to generate an RSS Feed for your Next.js site.</summary>
+                <summary>An annual review of the tools I use for software development</summary>
               </entry><entry>
                 <id>https://redgreenrefactor.dev/posts/bowling-game-clojure</id>
                 <title>Bowling Game Kata in Clojure</title>
