@@ -1,5 +1,6 @@
-import fs from 'fs';
-import path from 'path';
+#!/usr/bin/env zx
+
+import 'zx/globals';
 import {
     getSortedPostsData,
     blogPostsRssXml,
