@@ -6,7 +6,7 @@ import {
     blogPostsRssXml,
     getPostsByTag,
     PostData,
-} from './posts';
+} from './posts.js';
 
 function writeRss(posts: PostData[], filename: string) {
     const { rssItemsXml, latestPostDate } = blogPostsRssXml(posts);
