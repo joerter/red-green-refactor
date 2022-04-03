@@ -15,8 +15,15 @@
         "next": "^12.1.0",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
+        "rehype-highlight": "^5.0.2",
+        "rehype-stringify": "^9.0.3",
         "remark": "^14.0.2",
-        "remark-html": "^15.0.1"
+        "remark-code-extra": "^1.0.1",
+        "remark-html": "^15.0.1",
+        "remark-parse": "^10.0.1",
+        "remark-preset-lint-markdown-style-guide": "^5.1.2",
+        "remark-rehype": "^10.1.0",
+        "unified": "^10.1.2"
     },
     "devDependencies": {
         "@types/node": "^17.0.21",
