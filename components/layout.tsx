@@ -46,9 +46,7 @@ export default function Layout(props: {
                     </a>
                 </Link>
                 <nav className={styles.menu}>
-                    <Link href="/about">
-                        <a>About</a>
-                    </Link>
+                    <a href="https://johnoerter.me" target="_blank">About</a>
                     <Link href="/tags">
                         <a>Tags</a>
                     </Link>
