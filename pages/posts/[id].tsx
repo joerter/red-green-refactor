@@ -25,7 +25,7 @@ export default function Post({
     useEffect(() => {
         const timer = setTimeout(() => {
             window['Prism'].highlightAll();
-        }, 1000);
+        }, 500);
         return () => clearTimeout(timer);
     });
 
