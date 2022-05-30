@@ -98,7 +98,7 @@ export async function getPostData(id: string) {
     const processedContent = await unified()
         .use(remarkParse)
         .use(remarkRehype)
-        .use(rehypeHighlight)
+        .use(rehypeHighlight, { ignoreMissing: true })
         .use(rehypeStringify)
         .process(matterResult.content);
     const contentHtml = processedContent.toString();
