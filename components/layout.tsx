@@ -52,6 +52,7 @@ export default function Layout(props: {
                     </Link>
                     <a href="/rss.xml">RSS</a>
                 </nav>
+                <a rel="me" href="https://mastodon.technology/@redgreenrefactor" style={{display: 'none'}}>Mastodon</a>
             </header>
             <main>{props.children}</main>
             {!props.home && (
