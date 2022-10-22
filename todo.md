@@ -1,3 +1,4 @@
 - html meta for social sharing
 - rss
 - mobile check
+- blogs
