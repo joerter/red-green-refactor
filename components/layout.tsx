@@ -51,7 +51,7 @@ export default function Layout(props: {
                         <a>Tags</a>
                     </Link>
                     <a href="/rss.xml">RSS</a>
-                    <a href="https://discord.gg/HKeHZJWS">Discord</a>
+                    <a href="https://discord.gg/4a9Xwp4m23">Discord</a>
                 </nav>
                 <a rel="me" href="https://tdd.social/web/@redgreenrefactor" style={{display: 'none'}}>Mastodon</a>
             </header>
