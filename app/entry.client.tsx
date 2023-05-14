@@ -4,15 +4,20 @@
  * For more information, see https://remix.run/docs/en/main/file-conventions/entry.client
  */
 
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import { RemixBrowser } from "@remix-run/react";
 import { startTransition, StrictMode } from "react";
 import { hydrateRoot } from "react-dom/client";
+import theme from "./theme";
 
 startTransition(() => {
   hydrateRoot(
     document,
     <StrictMode>
-      <RemixBrowser />
+      <ThemeProvider theme={theme}>
+        <RemixBrowser />
+        <CssBaseline />
+      </ThemeProvider>
     </StrictMode>
   );
 });
