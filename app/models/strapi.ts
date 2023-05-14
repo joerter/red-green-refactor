@@ -1,6 +1,8 @@
+export const strapiBaseUrl = process.env.STRAPI_URL_BASE;
+
 export async function strapi<T>(resource: string) {
   const response = await fetch(
-    `${process.env.STRAPI_URL_BASE}/api/${resource}`,
+    `${strapiBaseUrl}/api/${resource}`,
     {
       method: "GET",
       headers: {
