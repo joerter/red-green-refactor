@@ -1,4 +1,4 @@
-import { strapi } from "./strapi";
+import { strapi } from "../strapi";
 
 export interface StrapiMediaFormat {
   url: string;

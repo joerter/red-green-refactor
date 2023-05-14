@@ -1,6 +1,8 @@
 import {
   AppBar,
+  Button,
   Card,
+  CardActions,
   CardContent,
   CardHeader,
   CardMedia,
@@ -8,12 +10,14 @@ import {
   Link,
   Paper,
   Toolbar,
+  Typography,
 } from "@mui/material";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import { V2_MetaFunction, json } from "@remix-run/node";
 import { Link as RemixLink, useLoaderData } from "@remix-run/react";
 import { getBlogs } from "~/models/blog.server";
-import { strapiBaseUrl } from "~/models/strapi";
+import { strapiBaseUrl } from "~/strapi";
 
 export const meta: V2_MetaFunction = () => [
   { title: "Red Green Refactor Blog" },
@@ -25,6 +29,12 @@ export const loader = async () => {
     blogs,
   });
 };
+
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  year: "numeric",
+  month: "short",
+  day: "2-digit",
+});
 
 export default function Index() {
   const data = useLoaderData<typeof loader>();
@@ -71,22 +81,52 @@ export default function Index() {
           }}
         ></Paper>
         <Grid2 container spacing={2}>
-          {blogs.map((b, i) => (
-            <Grid2 key={i} xs={12} sm={6} md={4}>
-              <Card>
-                <CardMedia
-                  component="img"
-                  height="300"
-                  image={`${strapiBaseUrl}${b.attributes.Hero.data.attributes.formats.small.url}`}
-                ></CardMedia>
-                <CardHeader
-                  title={b.attributes.Title}
-                  subheader={b.attributes.Published}
-                />
-                <CardContent>{b.attributes.Excerpt}</CardContent>
-              </Card>
-            </Grid2>
-          ))}
+          {blogs.map((b, i) => {
+            const published = dateFormatter.format(
+              new Date(b.attributes.Published)
+            );
+            const excerpt = `${b.attributes.Excerpt.substring(0, 150)}...`;
+
+            return (
+              <Grid2 key={i} xs={12} sm={6} md={4}>
+                <Card raised>
+                  <CardMedia
+                    component="img"
+                    height="250"
+                    image={`${strapiBaseUrl}${b.attributes.Hero.data.attributes.formats.small.url}`}
+                  ></CardMedia>
+                  <CardHeader
+                    sx={{ minHeight: 125, alignItems: "flex-start" }}
+                    title={b.attributes.Title}
+                    subheader={published}
+                    titleTypographyProps={{ sx: { fontWeight: "bold" } }}
+                  />
+                  <CardContent>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        minHeight: 50,
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                      }}
+                    >
+                      {excerpt}
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button
+                      size="small"
+                      variant="text"
+                      color="secondary"
+                      sx={{ fontWeight: "bold" }}
+                    >
+                      Read more <ArrowForwardIcon />
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid2>
+            );
+          })}
         </Grid2>
       </Container>
     </div>
