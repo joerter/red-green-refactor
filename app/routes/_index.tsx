@@ -1,6 +1,11 @@
-import { AppBar, Box, Container, Toolbar, Typography } from "@mui/material";
+import {
+  AppBar,
+  Container,
+  Link,
+  Toolbar,
+} from "@mui/material";
 import { V2_MetaFunction, json } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
+import { Link as RemixLink } from "@remix-run/react";
 import { getBlogs } from "~/models/blog.server";
 
 export const meta: V2_MetaFunction = () => [
@@ -19,13 +24,13 @@ export default function Index() {
     <AppBar position="static">
       <Container maxWidth="md">
         <Toolbar disableGutters>
-          <Typography variant="h1" component={Link} to="/" sx={{
-            fontSize: '1rem',
-            color: 'common.white',
-            textDecoration: 'none',
-            textTransform: 'uppercase',
-            fontWeight: 'bold',
-          }}>Red Green Refactor</Typography>
+          <Link
+            component={RemixLink}
+            to="/"
+            sx={{ textDecoration: "none", lineHeight: 0 }}
+          >
+            <img style={{ width: 320, height: 60 }} src="/navbar.png" />
+          </Link>
         </Toolbar>
       </Container>
     </AppBar>
