@@ -1,5 +1,6 @@
 import {
   AppBar,
+  Box,
   Button,
   Card,
   CardActions,
@@ -9,6 +10,7 @@ import {
   Container,
   Link,
   Paper,
+  Stack,
   Toolbar,
   Typography,
 } from "@mui/material";
@@ -75,11 +77,51 @@ export default function Index() {
         <Paper
           sx={{
             my: 2,
-            minHeight: 500,
+            height: 500,
             bgcolor: "primary.main",
             background: "linear-gradient(to right, #21295C, #5c69be);",
           }}
-        ></Paper>
+        >
+          <Stack
+            direction={{ xs: "column", md: "row" }}
+            alignItems="center"
+            justifyContent={{ xs: "center", md: "center" }}
+            sx={{ height: "100%", p: 2 }}
+          >
+            <Stack sx={{ color: "common.white" }}>
+              <Typography
+                variant="h2"
+                sx={{
+                  fontWeight: "bold",
+                  textAlign: { xs: "center", md: "left" },
+                }}
+              >
+                John Oerter
+              </Typography>
+              <Typography
+                variant="h4"
+                color="secondary.main"
+                sx={{
+                  fontWeight: "500",
+                  textAlign: { xs: "center", md: "left" },
+                }}
+              >
+                Lead Software Developer
+              </Typography>
+            </Stack>
+            <Stack alignItems="center">
+              <Box sx={{ display: { xs: "none", sm: "none", md: "flex" } }}>
+                <img width="428" height="375" src="/no_background.png" />
+              </Box>
+              <Box sx={{ display: { xs: "none", sm: "flex", md: "none" } }}>
+                <img width="300" height="263" src="/no_background_medium.png" />
+              </Box>
+              <Box sx={{ mt: 2, display: { xs: "flex", sm: "none" } }}>
+                <img width="200" height="175" src="/no_background_small.png" />
+              </Box>
+            </Stack>
+          </Stack>
+        </Paper>
         <Grid2 container spacing={2}>
           {blogs.map((b, i) => {
             const published = dateFormatter.format(
