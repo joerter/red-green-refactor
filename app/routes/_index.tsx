@@ -100,13 +100,13 @@ export default function Index() {
               </Typography>
               <Typography
                 variant="h4"
-                color="secondary.main"
+                color="gray[300]"
                 sx={{
                   fontWeight: "500",
                   textAlign: { xs: "center", md: "left" },
                 }}
               >
-                Lead Software Developer
+                Lead Software Engineer
               </Typography>
             </Stack>
             <Stack alignItems="center">
@@ -122,6 +122,35 @@ export default function Index() {
             </Stack>
           </Stack>
         </Paper>
+        <Paper
+          sx={{
+            my: 4,
+            p: 2,
+          }}
+        >
+          <Typography
+            variant="h3"
+            align="center"
+            sx={{
+              textDecoration: "underline",
+              textDecorationColor: "#8db905",
+            }}
+          >
+            Welcome to my blog!
+          </Typography>
+
+          <Box sx={{ mt: 2, mx: "auto", maxWidth: 750 }}>
+            <Typography variant="body1">
+              Browse my articles below where I've written on topics such as
+              software craftsmanship, web development, and Vim. If you'd like to
+              get in contact with me, you can send me an email at{" "}
+              <a href="mailto:john@redgreenrefactor.dev">
+                john@redgreenrefactor.dev
+              </a>
+            </Typography>
+          </Box>
+        </Paper>
+
         <Grid2 container spacing={2}>
           {blogs.map((b, i) => {
             const published = dateFormatter.format(
