@@ -77,7 +77,8 @@ export default function Index() {
         <Paper
           sx={{
             my: 2,
-            height: 500,
+            pb: 1,
+            px: 1,
             bgcolor: "primary.main",
             background: "linear-gradient(to right, #21295C, #5c69be);",
           }}
@@ -121,34 +122,36 @@ export default function Index() {
               </Box>
             </Stack>
           </Stack>
-        </Paper>
-        <Paper
-          sx={{
-            my: 4,
-            p: 2,
-          }}
-        >
-          <Typography
-            variant="h3"
-            align="center"
+          <Paper
             sx={{
-              textDecoration: "underline",
-              textDecorationColor: "#8db905",
+              my: 4,
+              p: 2,
+              maxWidth: 750,
+              mx: 'auto'
             }}
           >
-            Welcome to my blog!
-          </Typography>
-
-          <Box sx={{ mt: 2, mx: "auto", maxWidth: 750 }}>
-            <Typography variant="body1">
-              Browse my articles below where I've written on topics such as
-              software craftsmanship, web development, and Vim. If you'd like to
-              get in contact with me, you can send me an email at{" "}
-              <a href="mailto:john@redgreenrefactor.dev">
-                john@redgreenrefactor.dev
-              </a>
+            <Typography
+              variant="h4"
+              align="center"
+              sx={{
+                textDecoration: "underline",
+                textDecorationColor: "#8db905",
+              }}
+            >
+              Welcome to my blog!
             </Typography>
-          </Box>
+
+            <Box sx={{ mt: 2, mx: "auto", maxWidth: 750 }}>
+              <Typography variant="body1">
+                Browse my articles below where I've written on topics such as
+                software craftsmanship, web development, and Vim. If you'd like
+                to get in contact with me, you can send me an email at{" "}
+                <a href="mailto:john@redgreenrefactor.dev">
+                  john@redgreenrefactor.dev
+                </a>
+              </Typography>
+            </Box>
+          </Paper>
         </Paper>
 
         <Grid2 container spacing={2}>
