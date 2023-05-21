@@ -2,9 +2,7 @@ import { V2_MetaFunction, json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getBlogs } from "~/models/blog.server";
 import Hero from "./Hero";
-import Navbar from "./NavBar";
 import BlogCards from "./BlogCards";
-import { Container } from "@mui/material";
 
 export const meta: V2_MetaFunction = () => [
   { title: "Red Green Refactor Blog" },
@@ -24,12 +22,8 @@ export default function Index() {
 
   return (
     <div>
-      <Navbar />
-      <Container maxWidth="lg">
-        <Hero />
-
-        <BlogCards blogs={blogs} />
-      </Container>
+      <Hero />
+      <BlogCards blogs={blogs} />
     </div>
   );
 }

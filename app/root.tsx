@@ -5,8 +5,11 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from "@remix-run/react";
-import { LinksFunction } from "@remix-run/node";
+import { LinksFunction, json } from "@remix-run/node";
+import { Navbar } from "./routes/layout";
+import { Container } from "@mui/material";
 
 export const links: LinksFunction = () => {
   return [
@@ -17,7 +20,17 @@ export const links: LinksFunction = () => {
   ];
 };
 
+export function loader() {
+  return json({
+    ENV: {
+      STRAPI_URL_BASE: process.env.STRAPI_URL_BASE,
+    },
+  });
+}
+
 export default function App() {
+  const data = useLoaderData<typeof loader>();
+
   return (
     <html lang="en" className="h-full">
       <head>
@@ -27,7 +40,15 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full">
-        <Outlet />
+        <Navbar />
+        <Container maxWidth="lg">
+          <Outlet />
+        </Container>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.ENV = ${JSON.stringify(data.ENV)}`,
+          }}
+        />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

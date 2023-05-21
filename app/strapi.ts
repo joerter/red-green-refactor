@@ -1,16 +1,16 @@
-export const strapiBaseUrl = process.env.STRAPI_URL_BASE;
+export const strapiBaseUrl = () =>
+  typeof window !== "undefined"
+    ? (window as any).ENV.STRAPI_URL_BASE
+    : process.env.STRAPI_URL_BASE;
 
 export async function strapi<T>(resource: string) {
-  const response = await fetch(
-    `${strapiBaseUrl}/api/${resource}`,
-    {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  const response = await fetch(`${strapiBaseUrl()}/api/${resource}`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
+      "Content-Type": "application/json",
+    },
+  });
 
   if (!response.ok) {
     throw new Response(null, {
