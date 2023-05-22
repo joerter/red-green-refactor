@@ -14,25 +14,19 @@ import Grid2 from "@mui/material/Unstable_Grid2";
 import { Blog } from "~/models/blog.server";
 import { Link as RemixLink } from "@remix-run/react";
 import { strapiBaseUrl } from "~/strapi";
+import { formatDateString } from "~/date";
 
 export interface BlogCardsProps {
   blogs: Blog[];
 }
 
-const dateFormatter = new Intl.DateTimeFormat("en-US", {
-  year: "numeric",
-  month: "short",
-  day: "2-digit",
-});
-
 export default function BlogCards(props: BlogCardsProps) {
   return (
     <Grid2 container spacing={2}>
       {props.blogs.map((b, i) => {
-        const published = dateFormatter.format(
-          new Date(b.attributes.Published)
-        );
+        const published = formatDateString(b.attributes.Published);
         const excerpt = `${b.attributes.Excerpt.substring(0, 150)}...`;
+        const url = `/posts/${b.attributes.Slug}`;
 
         return (
           <Grid2 key={i} xs={12} sm={6} md={4}>
@@ -47,7 +41,7 @@ export default function BlogCards(props: BlogCardsProps) {
                 ></CardMedia>
                 <Link
                   component={RemixLink}
-                  to="/posts/john"
+                  to={url}
                   sx={{
                     position: "absolute",
                     inset: 0,
@@ -79,7 +73,7 @@ export default function BlogCards(props: BlogCardsProps) {
                   variant="text"
                   color="secondary"
                   component={RemixLink}
-                  to="/posts/john"
+                  to={url}
                   sx={{ fontWeight: "bold" }}
                 >
                   Read more <ArrowForwardIcon />

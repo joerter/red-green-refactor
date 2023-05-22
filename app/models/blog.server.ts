@@ -22,12 +22,17 @@ export interface Blog {
   attributes: {
     Content: string;
     Excerpt: string;
-    Published: string;
-    Title: string;
     Hero: StrapiMedia;
+    Published: string;
+    Slug: string;
+    Title: string;
   };
 }
 
 export function getBlogs() {
   return strapi<Blog[]>("blogs?populate=Hero");
+}
+
+export function getBlog(slug: string) {
+  return strapi<Blog[]>(`blogs?populate=Hero&filters[Slug][$eq]=${slug}`);
 }
