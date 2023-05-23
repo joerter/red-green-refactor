@@ -107,7 +107,27 @@ const PostContent = styled("div")(({ theme }) => ({
     backgroundSize: "4px 50px",
     color: theme.palette.common.white,
   },
-  code: {},
+  code: {
+    fontFamily: "Consolas, Monaco, 'Andale Mono', monospace",
+    fontSize: "14px",
+    backgroundColor: "#f5f5f5",
+    padding: "2px 4px",
+    border: "1px solid #ccc",
+    color: "#333",
+  },
+  "pre code": {
+    fontFamily: "Consolas, Monaco, 'Andale Mono', monospace",
+    fontSize: "14px",
+    color: "#333",
+    border: "none",
+    whiteSpace: "pre",
+    overflowX: "auto",
+  },
+  pre: {
+    padding: "1rem",
+    backgroundColor: "#f5f5f5",
+    overflow: "auto",
+  },
 }));
 
 export default function Post() {
