@@ -9,7 +9,7 @@ import {
 } from "@remix-run/react";
 import { LinksFunction, json } from "@remix-run/node";
 import { Navbar } from "./routes/layout";
-import { Container } from "@mui/material";
+import { Container, CssBaseline } from "@mui/material";
 
 export const links: LinksFunction = () => {
   return [
@@ -32,14 +32,14 @@ export default function App() {
   const data = useLoaderData<typeof loader>();
 
   return (
-    <html lang="en" className="h-full">
+    <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
       </head>
-      <body className="h-full">
+      <body>
         <Navbar />
         <Container maxWidth="lg">
           <Outlet />

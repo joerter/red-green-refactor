@@ -20,7 +20,11 @@ export const themeOptions: ThemeOptions = {
       main: "#8db905",
     },
     info: {
-      main: "#488EE3"
+      main: "#488EE3",
+    },
+    background: {
+      default: '#eee',
+      paper: "#fff",
     },
     gradient: {
       paper: "linear-gradient(to right, #21295C, #5c69be)",
