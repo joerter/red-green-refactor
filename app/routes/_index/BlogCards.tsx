@@ -40,6 +40,7 @@ export default function BlogCards(props: BlogCardsProps) {
                   }`}
                 ></CardMedia>
                 <Link
+                  prefetch="intent"
                   component={RemixLink}
                   to={url}
                   sx={{
@@ -73,6 +74,7 @@ export default function BlogCards(props: BlogCardsProps) {
                   variant="text"
                   color="secondary"
                   component={RemixLink}
+                  prefetch="intent"
                   to={url}
                   sx={{ fontWeight: "bold" }}
                 >

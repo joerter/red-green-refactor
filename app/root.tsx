@@ -8,7 +8,7 @@ import {
   useLoaderData,
 } from "@remix-run/react";
 import { LinksFunction, json } from "@remix-run/node";
-import { Navbar } from "./routes/layout";
+import { Footer, Navbar } from "./routes/layout";
 import { Container, CssBaseline } from "@mui/material";
 
 export const links: LinksFunction = () => {
@@ -41,9 +41,10 @@ export default function App() {
       </head>
       <body>
         <Navbar />
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" sx={{py: 4}}>
           <Outlet />
         </Container>
+        <Footer />
         <script
           dangerouslySetInnerHTML={{
             __html: `window.ENV = ${JSON.stringify(data.ENV)}`,

@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <Paper
       sx={{
-        my: 2,
+        mb: 2,
         pb: 1,
         px: 1,
         bgcolor: "primary.main",

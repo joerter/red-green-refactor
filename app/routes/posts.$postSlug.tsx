@@ -29,10 +29,17 @@ export async function loader(args: LoaderArgs) {
   const post = posts[0];
   const content = sanitizeHtml(marked.parse(post.attributes.Content));
 
-  return json({
-    post,
-    content,
-  });
+  return json(
+    {
+      post,
+      content,
+    },
+    {
+      headers: {
+        "Cache-Control": "public, max-age=3600, must-revalidate",
+      },
+    }
+  );
 }
 
 const PostContent = styled("div")(({ theme }) => ({
@@ -133,12 +140,11 @@ const PostContent = styled("div")(({ theme }) => ({
 export default function Post() {
   const data = useLoaderData<typeof loader>();
 
-  console.log(data);
   return (
     <Stack spacing={1}>
       <Paper
         sx={{
-          my: 2,
+          mb: 2,
         }}
       >
         <Box

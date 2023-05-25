@@ -18,12 +18,11 @@ export const loader = async () => {
 export default function Index() {
   const data = useLoaderData<typeof loader>();
   const blogs = data.blogs;
-  console.log(blogs);
 
   return (
-    <div>
+    <>
       <Hero />
       <BlogCards blogs={blogs} />
-    </div>
+    </>
   );
 }
