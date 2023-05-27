@@ -1,29 +1,23 @@
 import { Stack } from "@mui/material";
 import { LoaderArgs, json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { getBlog } from "~/models/blog.server";
-import { marked } from "marked";
-import sanitizeHtml from "sanitize-html";
 import PostContent from "./PostContent";
 import PostHero from "./PostHero";
+import { getPost } from "~/models/posts.server";
 
 export async function loader(args: LoaderArgs) {
   const postSlug = args.params["postSlug"];
   if (!postSlug) {
     throw new Response(null, { status: 404 });
   }
-  const posts = await getBlog(postSlug);
-  if (!posts.length) {
+  const post = await getPost(postSlug);
+  if (!post.length) {
     throw new Response(null, { status: 404 });
   }
-
-  const post = posts[0];
-  const content = sanitizeHtml(marked.parse(post.attributes.Content));
 
   return json(
     {
       post,
-      content,
     },
     {
       headers: {
@@ -36,10 +30,10 @@ export async function loader(args: LoaderArgs) {
 export default function Post() {
   const data = useLoaderData<typeof loader>();
 
+  // <PostHero post={data.post} />
   return (
     <Stack spacing={1}>
-      <PostHero post={data.post} />
-      <PostContent content={data.content} />
+      <PostContent content={data.post} />
     </Stack>
   );
 }

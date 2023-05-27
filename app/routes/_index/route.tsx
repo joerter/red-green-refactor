@@ -1,28 +1,28 @@
 import { V2_MetaFunction, json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { getBlogs } from "~/models/blog.server";
 import Hero from "./Hero";
 import BlogCards from "./BlogCards";
+import { getPosts } from "~/models/posts.server";
 
 export const meta: V2_MetaFunction = () => [
   { title: "Red Green Refactor Blog" },
 ];
 
 export const loader = async () => {
-  const blogs = await getBlogs();
+  const posts = getPosts();
   return json({
-    blogs,
+    posts,
   });
 };
 
 export default function Index() {
   const data = useLoaderData<typeof loader>();
-  const blogs = data.blogs;
+  const posts = data.posts;
 
   return (
     <>
       <Hero />
-      <BlogCards blogs={blogs} />
+      <BlogCards posts={posts} />
     </>
   );
 }

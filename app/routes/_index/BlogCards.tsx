@@ -11,34 +11,27 @@ import {
 } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Grid2 from "@mui/material/Unstable_Grid2";
-import { Blog } from "~/models/blog.server";
 import { Link as RemixLink } from "@remix-run/react";
-import { strapiBaseUrl } from "~/strapi";
 import { formatDateString } from "~/date";
+import { Post } from "~/models/posts";
 
 export interface BlogCardsProps {
-  blogs: Blog[];
+  posts: Post[];
 }
 
 export default function BlogCards(props: BlogCardsProps) {
   return (
     <Grid2 container spacing={2}>
-      {props.blogs.map((b, i) => {
-        const published = formatDateString(b.attributes.Published);
-        const excerpt = `${b.attributes.Excerpt.substring(0, 150)}...`;
-        const url = `/posts/${b.attributes.Slug}`;
+      {props.posts.map((p, i) => {
+        const published = formatDateString(p.date);
+        const excerpt = `${p.excerpt.substring(0, 150)}...`;
+        const url = `/posts/${p.slug}`;
 
         return (
           <Grid2 key={i} xs={12} sm={6} md={4}>
             <Card raised>
               <CardActionArea sx={{ position: "relative" }}>
-                <CardMedia
-                  component="img"
-                  height="250"
-                  image={`${strapiBaseUrl()}${
-                    b.attributes.Hero.data.attributes.formats.small.url
-                  }`}
-                ></CardMedia>
+                <CardMedia component="img" height="250" image=""></CardMedia>
                 <Link
                   prefetch="intent"
                   component={RemixLink}
@@ -51,7 +44,7 @@ export default function BlogCards(props: BlogCardsProps) {
               </CardActionArea>
               <CardHeader
                 sx={{ minHeight: 125, alignItems: "flex-start" }}
-                title={b.attributes.Title}
+                title={p.title}
                 subheader={published}
                 titleTypographyProps={{ sx: { fontWeight: "bold" } }}
               />
