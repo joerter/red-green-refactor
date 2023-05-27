@@ -13,7 +13,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import { Link as RemixLink } from "@remix-run/react";
 import { formatDateString } from "~/date";
-import { Post } from "~/models/posts";
+import { Post } from "~/models/posts.server";
 
 export interface BlogCardsProps {
   posts: Post[];
@@ -31,7 +31,11 @@ export default function BlogCards(props: BlogCardsProps) {
           <Grid2 key={i} xs={12} sm={6} md={4}>
             <Card raised>
               <CardActionArea sx={{ position: "relative" }}>
-                <CardMedia component="img" height="250" image={`/posts/thumb/${p.slug}.jpeg`}></CardMedia>
+                <CardMedia
+                  component="img"
+                  height="250"
+                  image={`/posts/thumb/${p.slug}.jpeg`}
+                ></CardMedia>
                 <Link
                   prefetch="intent"
                   component={RemixLink}
