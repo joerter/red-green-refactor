@@ -9,7 +9,7 @@ import {
 } from "@remix-run/react";
 import { LinksFunction, json } from "@remix-run/node";
 import { Footer, Navbar } from "./routes/layout";
-import { Container, CssBaseline } from "@mui/material";
+import { Container, CssBaseline, Stack } from "@mui/material";
 
 export const links: LinksFunction = () => {
   return [
@@ -40,11 +40,13 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Navbar />
-        <Container maxWidth="lg" sx={{py: 4}}>
-          <Outlet />
-        </Container>
-        <Footer />
+        <Stack sx={{ minHeight: "100vh" }}>
+          <Navbar />
+          <Container maxWidth="lg" sx={{ py: 4, flex: 1 }}>
+            <Outlet />
+          </Container>
+          <Footer />
+        </Stack>
         <script
           dangerouslySetInnerHTML={{
             __html: `window.ENV = ${JSON.stringify(data.ENV)}`,
