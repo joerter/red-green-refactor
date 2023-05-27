@@ -31,7 +31,7 @@ export default function BlogCards(props: BlogCardsProps) {
           <Grid2 key={i} xs={12} sm={6} md={4}>
             <Card raised>
               <CardActionArea sx={{ position: "relative" }}>
-                <CardMedia component="img" height="250" image=""></CardMedia>
+                <CardMedia component="img" height="250" image={`/posts/thumb/${p.slug}.jpeg`}></CardMedia>
                 <Link
                   prefetch="intent"
                   component={RemixLink}

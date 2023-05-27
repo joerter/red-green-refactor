@@ -1,10 +1,4 @@
-export interface Post {
-  title: string;
-  date: string;
-  slug: string;
-  excerpt: string;
-  tags: string[];
-}
+import { Post } from "./posts.server";
 
 export const posts: Post[] = [
   {
@@ -13,6 +7,7 @@ export const posts: Post[] = [
     date: "2022-11-12",
     excerpt: "Abstractions come at a price. Learn the fundamentals first.",
     tags: ["craftsmanship"],
+    heroCaption: 'Saturn as seen from the Cassini–Huygens space-research mission. Courtesy of NASA'
   },
   {
     title: "React Testing Library Tips and Tricks",
@@ -20,6 +15,7 @@ export const posts: Post[] = [
     date: "2022-11-19",
     excerpt: "Some quick tips for RTL I've learned recently.",
     tags: ["react"],
+    heroCaption: '',
   },
   {
     title: "Responding to TDD Pushback",
@@ -27,6 +23,7 @@ export const posts: Post[] = [
     date: "2022-10-24",
     excerpt: "Focus on testing the behavior of you code, not the structure",
     tags: ["craftsmanship"],
+    heroCaption: '',
   },
   {
     title: "2021 Development Environment Review",
@@ -34,6 +31,7 @@ export const posts: Post[] = [
     date: "2022-02-27",
     excerpt: "An annual review of the tools I use for software development",
     tags: ["craftsmanship", "vim"],
+    heroCaption: '',
   },
   {
     title: "Benefits of Writing Tests First",
@@ -41,6 +39,7 @@ export const posts: Post[] = [
     date: "2022-10-31",
     excerpt: "Two benefits of writing tests first.",
     tags: ["craftsmanship"],
+    heroCaption: '',
   },
   {
     title: "Integration Test Entropy",
@@ -49,6 +48,7 @@ export const posts: Post[] = [
     excerpt:
       "Why do integration tests become brittle and lose value over time?",
     tags: ["craftsmanship"],
+    heroCaption: '',
   },
   {
     title: "Learning to Love Testing Library",
@@ -57,6 +57,7 @@ export const posts: Post[] = [
     excerpt:
       "How angular-testing-library and react-testing-library changed the way I think about UI tests.",
     tags: ["angular", "react"],
+    heroCaption: '',
   },
   {
     title: "Message in a Bottle - A Simple Clojure App",
@@ -64,6 +65,7 @@ export const posts: Post[] = [
     date: "2020-12-05",
     excerpt: "I built a very simple app to start learning Clojure",
     tags: ["clojure"],
+    heroCaption: '',
   },
   {
     title: "Vim and Vim Emulators",
@@ -71,6 +73,7 @@ export const posts: Post[] = [
     date: "2020-11-16",
     excerpt: "Why I use Vim emulators instead of pure vim.",
     tags: ["vim"],
+    heroCaption: '',
   },
   {
     title: "10 Tips For Awesome Angular Apps",
@@ -78,6 +81,7 @@ export const posts: Post[] = [
     date: "2020-11-07",
     excerpt: "10 tips from my experience building Angular apps.",
     tags: ["angular"],
+    heroCaption: '',
   },
   {
     title: "Become a Better Developer with Code Katas",
@@ -86,6 +90,7 @@ export const posts: Post[] = [
     excerpt:
       "Learn how to make yourself a better developer by practicing code katas",
     tags: ["kata"],
+    heroCaption: '',
   },
   {
     title: "Correctness vs. Behavior",
@@ -93,6 +98,7 @@ export const posts: Post[] = [
     date: "2019-08-11",
     excerpt: "Dueling mentalities when it comes to writing unit tests",
     tags: ["craftsmanship"],
+    heroCaption: '',
   },
   {
     title: "A Quick Introduction to TDD",
@@ -100,6 +106,7 @@ export const posts: Post[] = [
     date: "2019-08-04",
     excerpt: "What is TDD? Learn the basics in this quick post.",
     tags: ["craftsmanship", "tdd"],
+    heroCaption: '',
   },
   {
     title: "Be an Engineer Not a User",
@@ -107,5 +114,6 @@ export const posts: Post[] = [
     date: "2015-10-20",
     excerpt: "My thoughts on the mindset of a senior developer.",
     tags: ["craftsmanship"],
+    heroCaption: '',
   },
 ];

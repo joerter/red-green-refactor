@@ -10,14 +10,11 @@ export async function loader(args: LoaderArgs) {
   if (!postSlug) {
     throw new Response(null, { status: 404 });
   }
-  const post = await getPost(postSlug);
-  if (!post.length) {
-    throw new Response(null, { status: 404 });
-  }
+  const postWithContent = await getPost(postSlug);
 
   return json(
     {
-      post,
+      post: postWithContent,
     },
     {
       headers: {
@@ -30,10 +27,10 @@ export async function loader(args: LoaderArgs) {
 export default function Post() {
   const data = useLoaderData<typeof loader>();
 
-  // <PostHero post={data.post} />
   return (
     <Stack spacing={1}>
-      <PostContent content={data.post} />
+      <PostHero post={data.post} />
+      <PostContent content={data.post.content} />
     </Stack>
   );
 }
