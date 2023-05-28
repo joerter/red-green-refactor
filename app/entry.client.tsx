@@ -7,17 +7,17 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { RemixBrowser } from "@remix-run/react";
 import { startTransition, StrictMode } from "react";
-import { hydrateRoot } from "react-dom/client";
 import theme from "./theme";
+import { hydrate } from "react-dom";
 
 startTransition(() => {
-  hydrateRoot(
-    document,
+  hydrate(
     <StrictMode>
       <ThemeProvider theme={theme}>
         <RemixBrowser />
         <CssBaseline />
       </ThemeProvider>
-    </StrictMode>
+    </StrictMode>,
+    document
   );
 });
