@@ -1,6 +1,6 @@
 import { Avatar, Box, Fade, Paper, Stack, Typography } from "@mui/material";
 import { Post } from "@prisma/client";
-import { formatDate } from "~/date";
+import { formatDateString } from "~/date";
 
 export interface PostHeroProps {
   post: Post;
@@ -59,7 +59,7 @@ export default function PostHero(props: PostHeroProps) {
                   </Typography>
                 </Stack>
                 <Typography variant="h5" sx={{ color: "grey.500" }}>
-                  {formatDate(props.post.date)}
+                  {formatDateString(props.post.published)}
                 </Typography>
               </Stack>
             </Paper>
@@ -67,7 +67,7 @@ export default function PostHero(props: PostHeroProps) {
         </Box>
       </Paper>
       <Typography variant="body2" textAlign="center">
-        {props.post.heroCaption}
+        {props.post.caption}
       </Typography>
     </Stack>
   );

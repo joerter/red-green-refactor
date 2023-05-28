@@ -8,7 +8,7 @@ export function getPosts() {
 
 export async function getPost(
   slug: string
-): Promise<{ post: Post; content: string }> {
+): Promise<Post> {
   const post = await prisma.post.findUnique({ where: { slug } });
   if (!post) {
     throw new Response(null, { status: 404 });
@@ -16,7 +16,7 @@ export async function getPost(
   const content = sanitizeHtml(post.markdown);
 
   return {
-    post,
-    content,
+    ...post,
+    markdown: content,
   };
 }

@@ -12,7 +12,7 @@ import {
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import { Link as RemixLink } from "@remix-run/react";
-import { formatDate } from "~/date";
+import { formatDateString as formatDateString } from "~/date";
 import { Post } from "@prisma/client";
 
 export interface BlogCardsProps {
@@ -23,7 +23,7 @@ export default function BlogCards(props: BlogCardsProps) {
   return (
     <Grid2 container spacing={2}>
       {props.posts.map((p, i) => {
-        const published = formatDate(p.createdAt);
+        const published = formatDateString(p.published);
         const excerpt = `${p.excerpt.substring(0, 150)}...`;
         const url = `/posts/${p.slug}`;
 

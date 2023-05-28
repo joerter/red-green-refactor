@@ -3,6 +3,7 @@ import { useLoaderData } from "@remix-run/react";
 import Hero from "./Hero";
 import BlogCards from "./BlogCards";
 import { getPosts } from "~/models/posts.server";
+import { Post } from "@prisma/client";
 
 export const meta: V2_MetaFunction = () => [
   { title: "Red Green Refactor Blog" },
@@ -16,7 +17,7 @@ export const loader = async () => {
 };
 
 export default function Index() {
-  const data = useLoaderData<typeof loader>();
+  const data = useLoaderData() as unknown as { posts: Post[] };
   const posts = data.posts;
 
   return (

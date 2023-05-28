@@ -4,17 +4,18 @@ import { useLoaderData } from "@remix-run/react";
 import PostContent from "./PostContent";
 import PostHero from "./PostHero";
 import { getPost } from "~/models/posts.server";
+import { Post } from "@prisma/client";
 
 export async function loader(args: LoaderArgs) {
   const postSlug = args.params["postSlug"];
   if (!postSlug) {
     throw new Response(null, { status: 404 });
   }
-  const postWithContent = await getPost(postSlug);
+  const post = await getPost(postSlug);
 
   return json(
     {
-      post: postWithContent,
+      post,
     },
     {
       headers: {
@@ -24,13 +25,13 @@ export async function loader(args: LoaderArgs) {
   );
 }
 
-export default function Post() {
-  const data = useLoaderData<typeof loader>();
+export default function PostPage() {
+  const data = useLoaderData() as unknown as { post: Post };
 
   return (
     <Stack spacing={1}>
       <PostHero post={data.post} />
-      <PostContent content={data.post.content} />
+      <PostContent content={data.post.markdown} />
     </Stack>
   );
 }
