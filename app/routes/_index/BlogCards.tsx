@@ -12,8 +12,8 @@ import {
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import { Link as RemixLink } from "@remix-run/react";
-import { formatDateString } from "~/date";
-import { Post } from "~/models/posts.server";
+import { formatDate } from "~/date";
+import { Post } from "@prisma/client";
 
 export interface BlogCardsProps {
   posts: Post[];
@@ -23,7 +23,7 @@ export default function BlogCards(props: BlogCardsProps) {
   return (
     <Grid2 container spacing={2}>
       {props.posts.map((p, i) => {
-        const published = formatDateString(p.date);
+        const published = formatDate(p.createdAt);
         const excerpt = `${p.excerpt.substring(0, 150)}...`;
         const url = `/posts/${p.slug}`;
 

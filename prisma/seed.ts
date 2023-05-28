@@ -1,7 +1,11 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
+import { posts } from "~/models/posts";
+import fs from "fs";
+import { marked } from "marked";
 
 const prisma = new PrismaClient();
+const readFile = fs.promises.readFile;
 
 async function seed() {
   const email = "rachel@remix.run";
@@ -24,21 +28,29 @@ async function seed() {
     },
   });
 
-  await prisma.note.create({
-    data: {
-      title: "My first note",
-      body: "Hello, world!",
-      userId: user.id,
-    },
-  });
-
-  await prisma.note.create({
-    data: {
-      title: "My second note",
-      body: "Hello, world!",
-      userId: user.id,
-    },
-  });
+  for (const post of posts) {
+    const data = await readFile(`posts/${post.slug}.md`, "utf8");
+    const markdown = marked.parse(data);
+    await prisma.post.upsert({
+      where: { slug: post.slug },
+      update: {
+        title: post.title,
+        published: post.date,
+        slug: post.slug,
+        excerpt: post.excerpt,
+        caption: post.heroCaption,
+        markdown,
+      },
+      create: {
+        title: post.title,
+        published: post.date,
+        slug: post.slug,
+        excerpt: post.excerpt,
+        caption: post.heroCaption,
+        markdown,
+      },
+    });
+  }
 
   console.log(`Database has been seeded. 🌱`);
 }

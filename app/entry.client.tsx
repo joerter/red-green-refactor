@@ -10,6 +10,10 @@ import { startTransition, StrictMode } from "react";
 import theme from "./theme";
 import { hydrate } from "react-dom";
 
+// Using hydrate for now to avoid the intial ui does not match
+// rendered error
+// https://github.com/remix-run/remix/issues/2570
+
 startTransition(() => {
   hydrate(
     <StrictMode>

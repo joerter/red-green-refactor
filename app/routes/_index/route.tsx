@@ -9,7 +9,7 @@ export const meta: V2_MetaFunction = () => [
 ];
 
 export const loader = async () => {
-  const posts = getPosts();
+  const posts = await getPosts();
   return json({
     posts,
   });

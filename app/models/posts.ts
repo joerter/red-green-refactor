@@ -1,6 +1,13 @@
-import { Post } from "./posts.server";
+export interface SeedPost {
+  title: string;
+  slug: string;
+  date: string;
+  excerpt: string;
+  tags: string[];
+  heroCaption: string;
+}
 
-export const posts: Post[] = [
+export const posts: SeedPost[] = [
   {
     title: "Stop Using Git GUIs",
     slug: "stop-using-git-guis",
