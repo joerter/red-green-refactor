@@ -6,7 +6,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import { LinksFunction } from "@remix-run/node";
+import { LinksFunction, V2_MetaFunction } from "@remix-run/node";
 import { Footer, Navbar } from "./routes/layout";
 import { Container, Stack } from "@mui/material";
 
@@ -16,6 +16,23 @@ export const links: LinksFunction = () => {
       rel: "stylesheet",
       href: "https://fonts.googleapis.com/css?family=Raleway:300,400,500,700&Lato:300,400,500,700&display=swa",
     },
+  ];
+};
+
+export const meta: V2_MetaFunction = () => {
+  return [
+    { title: "Red Green Refactor Blog" },
+    { name: "description", content: "Red Green Refactor by John Oerter" },
+    {
+      property: "og:description",
+      content: "Red Green Refactor Blog by John Oerter",
+    },
+    {
+      property: "og:image",
+      content:
+        "https://redgreenrefactor.nyc3.cdn.digitaloceanspaces.com/opengraph/redgreenrefactor.dev",
+    },
+    { property: "og:type", content: "image/png" },
   ];
 };
 
