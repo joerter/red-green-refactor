@@ -32,6 +32,31 @@ export const meta: V2_MetaFunction = () => {
       content:
         "https://redgreenrefactor.nyc3.cdn.digitaloceanspaces.com/opengraph/redgreenrefactor.dev",
     },
+    {
+      property: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      property: "twitter:domain",
+      content: "redgreenrefactor.dev",
+    },
+    {
+      property: "twitter:url",
+      content: "redgreenrefactor.dev",
+    },
+    {
+      property: "twitter:title",
+      content: "Red Green Refactor Blog",
+    },
+    {
+      property: "twitter:description",
+      content: "Red Green Refactor Blog by John Oerter",
+    },
+    {
+      property: "twitter:image",
+      content:
+        "https://redgreenrefactor.nyc3.cdn.digitaloceanspaces.com/opengraph/redgreenrefactor.dev",
+    },
     { property: "og:type", content: "image/png" },
   ];
 };
