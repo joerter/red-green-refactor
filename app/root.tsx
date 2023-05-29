@@ -7,9 +7,9 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from "@remix-run/react";
-import { LinksFunction, json } from "@remix-run/node";
+import { LinksFunction, MetaFunction, json } from "@remix-run/node";
 import { Footer, Navbar } from "./routes/layout";
-import { Container, CssBaseline, Stack } from "@mui/material";
+import { Container, Stack } from "@mui/material";
 
 export const links: LinksFunction = () => {
   return [
@@ -18,6 +18,14 @@ export const links: LinksFunction = () => {
       href: "https://fonts.googleapis.com/css?family=Raleway:300,400,500,700&Lato:300,400,500,700&display=swa",
     },
   ];
+};
+
+export const meta: MetaFunction = () => {
+  return {
+    title: "Red Green Refactor",
+    ["og:image"]:
+      "https://redgreenrefactor.nyc3.cdn.digitaloceanspaces.com/opengraph/redgreenrefactor.dev",
+  };
 };
 
 export function loader() {
